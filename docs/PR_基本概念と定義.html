@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>パブリック・リレーションズ概論 — 第2・3・4回</title>
+  <style>
+    :root {
+      --navy: #1a237e;
+      --blue: #1565c0;
+      --light-blue: #e3f2fd;
+      --accent: #0d47a1;
+      --gray-bg: #f4f6f9;
+      --gray-text: #546e7a;
+      --white: #ffffff;
+      --border: #bbdefb;
+      --green: #2e7d32;
+      --light-green: #e8f5e9;
+      --orange: #e65100;
+      --light-orange: #fff3e0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN','Noto Sans JP','Yu Gothic',sans-serif;
+      background: var(--gray-bg);
+      color: #2c3e50;
+      line-height: 1.75;
+    }
+
+    /* ── ヘッダー ── */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: var(--white);
+      padding: 52px 40px 44px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: 'PR';
+      position: absolute;
+      right: -20px; top: -30px;
+      font-size: 200px; font-weight: 900;
+      color: rgba(255,255,255,0.05);
+      letter-spacing: -10px;
+    }
+    .header-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .header-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+    }
+    .header-tag.new { background: rgba(255,200,0,0.3); border-color: rgba(255,200,0,0.6); }
+    header h1 { font-size: 1.9rem; font-weight: 900; line-height: 1.3; margin-bottom: 8px; max-width: 740px; }
+    header .sub { font-size: 1rem; opacity: 0.85; margin-bottom: 22px; }
+    .header-meta { display: flex; gap: 24px; flex-wrap: wrap; font-size: 0.83rem; opacity: 0.9; }
+    .header-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* ── ナビ ── */
+    nav {
+      background: var(--white);
+      border-bottom: 2px solid var(--border);
+      padding: 0 32px;
+      position: sticky; top: 0; z-index: 100;
+      display: flex; gap: 2px;
+      overflow-x: auto;
+    }
+    nav a {
+      display: inline-block;
+      padding: 13px 14px;
+      font-size: 0.8rem; font-weight: 700;
+      color: var(--gray-text);
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: all .2s;
+    }
+    nav a:hover { color: var(--blue); border-bottom-color: var(--blue); }
+    nav a.new-badge::after {
+      content: 'NEW';
+      background: #e53935;
+      color: white;
+      font-size: 0.6rem;
+      padding: 1px 5px;
+      border-radius: 6px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+
+    /* ── メイン ── */
+    main { max-width: 920px; margin: 40px auto; padding: 0 24px; }
+    section { margin-bottom: 56px; }
+
+    /* ── セクションラベル ── */
+    .section-label { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+    .section-num {
+      background: var(--navy); color: var(--white);
+      min-width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem; font-weight: 900; flex-shrink: 0;
+      padding: 0 8px;
+    }
+    .section-num.lecture3 { background: var(--green); }
+    .section-num.lecture4 { background: var(--orange); }
+    .section-label h2 { font-size: 1.4rem; font-weight: 900; color: var(--navy); }
+    .lecture-badge {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 10px;
+      background: var(--light-blue);
+      color: var(--blue);
+      border: 1px solid var(--border);
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .lecture-badge.l3 { background: var(--light-green); color: var(--green); border-color: #a5d6a7; }
+    .lecture-badge.l4 { background: var(--light-orange); color: var(--orange); border-color: #ffcc80; }
+
+    /* ── カード ── */
+    .card {
+      background: var(--white);
+      border-radius: 14px; padding: 26px 30px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      margin-bottom: 18px;
+      border-left: 5px solid var(--blue);
+    }
+    .card.green { border-left-color: var(--green); }
+    .card.orange { border-left-color: var(--orange); }
+    .card h3 {
+      font-size: 1.02rem; font-weight: 900;
+      color: var(--accent); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .card h3::before {
+      content: ''; display: inline-block;
+      width: 8px; height: 8px;
+      background: var(--blue); border-radius: 50%;
+    }
+    .card.green h3::before { background: var(--green); }
+    .card.orange h3::before { background: var(--orange); }
+
+    /* ── 定義ボックス ── */
+    .def-box {
+      background: var(--light-blue);
+      border: 2px solid var(--border);
+      border-radius: 14px; padding: 28px 30px;
+      margin-bottom: 18px; position: relative;
+    }
+    .def-box .year-tag {
+      position: absolute; top: -12px; left: 24px;
+      background: var(--navy); color: var(--white);
+      font-size: 0.76rem; font-weight: 700;
+      padding: 3px 12px; border-radius: 12px;
+    }
+    .def-box blockquote { font-size: 0.93rem; line-height: 1.9; color: #1a237e; margin-bottom: 10px; }
+    .def-box .source { font-size: 0.8rem; font-weight: 700; color: var(--blue); text-align: right; }
+
+    /* ── ハイライト定義 ── */
+    .def-highlight {
+      background: var(--navy); border-radius: 14px;
+      padding: 30px 34px; margin-bottom: 18px; color: var(--white);
+    }
+    .def-highlight .label { font-size: 0.75rem; opacity: 0.7; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .def-highlight .en { font-size: 1.05rem; font-style: italic; opacity: 0.9; margin-bottom: 14px; line-height: 1.6; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.25); }
+    .def-highlight .ja { font-size: 0.97rem; line-height: 1.85; margin-bottom: 10px; }
+    .def-highlight .source { font-size: 0.8rem; opacity: 0.72; text-align: right; }
+
+    /* ── 井之上定義 ── */
+    .inoue-def {
+      background: var(--white); border-radius: 14px;
+      padding: 28px 32px; box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      margin-bottom: 18px; border-top: 5px solid var(--navy);
+    }
+    .inoue-def .title { font-size: 0.8rem; font-weight: 700; color: var(--gray-text); letter-spacing: 0.1em; margin-bottom: 18px; }
+    .inoue-def .core { font-size: 1rem; color: #2c3e50; margin-bottom: 10px; }
+    .inoue-def .keyword { color: var(--navy); font-size: 1.3rem; font-weight: 900; }
+    .inoue-def .connector { color: var(--gray-text); font-size: 0.93rem; }
+    .inoue-def .source { margin-top: 18px; font-size: 0.83rem; font-weight: 700; color: var(--blue); text-align: right; }
+
+    /* ── テーブル ── */
+    table {
+      width: 100%; border-collapse: collapse;
+      background: var(--white); border-radius: 10px;
+      overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 18px;
+    }
+    thead th { background: var(--navy); color: var(--white); padding: 12px 16px; font-size: 0.86rem; font-weight: 700; text-align: left; }
+    thead th.green-head { background: var(--green); }
+    tbody td { padding: 11px 16px; font-size: 0.88rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: var(--light-blue); }
+    tbody tr:nth-child(even) td { background: rgba(227,242,253,0.4); }
+    td strong { color: var(--navy); }
+
+    /* ── 第5の経営資源グリッド ── */
+    .resource-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; margin-bottom: 18px; }
+    .resource-card { background: var(--white); border-radius: 12px; padding: 18px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-top: 4px solid var(--blue); }
+    .resource-card.integrator { grid-column: 1 / -1; border-top-color: var(--navy); background: linear-gradient(135deg, #e3f2fd 0%, #e8eaf6 100%); }
+    .resource-card .label { font-size: 1.4rem; font-weight: 900; color: var(--navy); margin-bottom: 7px; }
+    .resource-card p { font-size: 0.86rem; color: #37474f; line-height: 1.7; }
+
+    /* ── クォート ── */
+    .big-quote { background: var(--gray-bg); border-left: 6px solid var(--navy); border-radius: 0 12px 12px 0; padding: 22px 26px; margin-bottom: 18px; }
+    .big-quote p { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .big-quote .by { font-size: 0.83rem; color: var(--gray-text); }
+
+    /* ── 比較カード ── */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+    .compare-card { border-radius: 12px; padding: 20px 22px; }
+    .compare-card.japan { background: var(--light-blue); border: 2px solid var(--border); }
+    .compare-card.west { background: #fff3e0; border: 2px solid #ffcc80; }
+    .compare-card h4 { font-size: 0.97rem; font-weight: 900; margin-bottom: 9px; color: var(--navy); }
+    .compare-card.west h4 { color: #e65100; }
+    .compare-card p { font-size: 0.86rem; line-height: 1.7; color: #37474f; }
+
+    /* ── 棒グラフ ── */
+    .bar-chart { margin-bottom: 18px; }
+    .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 9px; }
+    .bar-label { width: 80px; font-size: 0.83rem; font-weight: 700; text-align: right; flex-shrink: 0; color: var(--navy); }
+    .bar-wrap { flex: 1; background: var(--border); border-radius: 6px; overflow: hidden; height: 26px; }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--accent)); border-radius: 6px; display: flex; align-items: center; justify-content: flex-end; padding-right: 9px; }
+    .bar-fill.japan { background: linear-gradient(90deg, #ef5350, #c62828); }
+    .bar-fill span { color: white; font-size: 0.76rem; font-weight: 700; white-space: nowrap; }
+
+    /* ── 事例リスト ── */
+    .case-list { display: flex; flex-direction: column; gap: 11px; }
+    .case-item { background: var(--white); border-radius: 10px; padding: 15px 18px; display: flex; align-items: flex-start; gap: 13px; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+    .case-icon { width: 34px; height: 34px; border-radius: 8px; background: var(--light-blue); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .case-item h4 { font-size: 0.93rem; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+    .case-item p { font-size: 0.83rem; color: var(--gray-text); }
+
+    /* ── 評価グリッド ── */
+    .eval-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; margin-bottom: 18px; }
+    .eval-card { background: var(--white); border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .eval-card .pct { font-size: 2.1rem; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 5px; }
+    .eval-card p { font-size: 0.8rem; color: var(--gray-text); }
+
+    /* ── タイムライン（歴史） ── */
+    .timeline { position: relative; padding-left: 28px; margin-bottom: 18px; }
+    .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 3px; background: var(--border); border-radius: 2px; }
+    .tl-item { position: relative; margin-bottom: 22px; }
+    .tl-item::before { content: ''; position: absolute; left: -22px; top: 6px; width: 14px; height: 14px; background: var(--blue); border-radius: 50%; border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--blue); }
+    .tl-item.last-item::before { background: var(--green); box-shadow: 0 0 0 2px var(--green); }
+    .tl-year { font-size: 0.78rem; font-weight: 700; color: var(--blue); letter-spacing: 0.05em; margin-bottom: 4px; }
+    .tl-title { font-size: 1rem; font-weight: 900; color: var(--navy); margin-bottom: 5px; }
+    .tl-body { font-size: 0.86rem; color: #37474f; line-height: 1.7; }
+
+    /* ── 日本PR発展史テーブル ── */
+    .jp-hist-table thead th:first-child { width: 150px; }
+
+    /* ── ハイパーグローバル3力 ── */
+    .three-forces { display: grid; grid-template-columns: repeat(3,1fr); gap: 13px; margin-bottom: 18px; }
+    .force-card { background: var(--white); border-radius: 12px; padding: 18px 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-top: 4px solid var(--green); text-align: center; }
+    .force-card .num { width: 32px; height: 32px; background: var(--green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 900; margin: 0 auto 10px; }
+    .force-card h4 { font-size: 0.9rem; font-weight: 900; color: var(--navy); margin-bottom: 6px; }
+    .force-card p { font-size: 0.82rem; color: var(--gray-text); line-height: 1.6; }
+
+    /* ── コロナ変化グリッド ── */
+    .corona-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-bottom: 18px; }
+    .corona-card { background: var(--white); border-radius: 12px; padding: 18px 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+    .corona-card h4 { font-size: 0.9rem; font-weight: 900; color: var(--navy); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+    .corona-card ul { padding-left: 0; list-style: none; }
+    .corona-card ul li { font-size: 0.82rem; color: #37474f; padding: 3px 0; padding-left: 14px; position: relative; line-height: 1.55; }
+    .corona-card ul li::before { content: '▸'; position: absolute; left: 0; color: var(--blue); font-size: 0.7rem; top: 4px; }
+
+    /* ── ゲスト講師カード ── */
+    .guest-card {
+      background: var(--white); border-radius: 14px;
+      padding: 28px 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      margin-bottom: 18px; border-top: 5px solid var(--green);
+    }
+    .guest-card .g-name { font-size: 1.3rem; font-weight: 900; color: var(--navy); margin-bottom: 4px; }
+    .guest-card .g-title { font-size: 0.88rem; color: var(--green); font-weight: 700; margin-bottom: 14px; }
+    .guest-card p { font-size: 0.86rem; line-height: 1.75; color: #37474f; margin-bottom: 10px; }
+    .guest-card .books { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+    .guest-card .books h4 { font-size: 0.85rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .guest-card .books li { font-size: 0.82rem; color: #37474f; margin-bottom: 4px; }
+
+    /* ── 第4回：リレーションズ詳細カード ── */
+    .relations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+    .rel-card { background: var(--white); border-radius: 12px; padding: 20px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-top: 4px solid var(--orange); }
+    .rel-card .rel-name { font-size: 1rem; font-weight: 900; color: var(--orange); margin-bottom: 6px; }
+    .rel-card .rel-target { font-size: 0.78rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; padding: 3px 8px; background: var(--light-orange); border-radius: 6px; display: inline-block; }
+    .rel-card p { font-size: 0.83rem; color: #37474f; line-height: 1.65; }
+    .rel-card .point { font-size: 0.82rem; color: var(--orange); font-weight: 700; margin-top: 8px; }
+
+    /* ── 第4回：コミュニケーション比較 ── */
+    .comm-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+    .comm-card { border-radius: 12px; padding: 22px 24px; }
+    .comm-card.corp { background: var(--light-blue); border: 2px solid var(--border); }
+    .comm-card.mktg { background: var(--light-orange); border: 2px solid #ffcc80; }
+    .comm-card .cc-head { font-size: 1rem; font-weight: 900; margin-bottom: 10px; }
+    .comm-card.corp .cc-head { color: var(--navy); }
+    .comm-card.mktg .cc-head { color: var(--orange); }
+    .comm-card p { font-size: 0.85rem; line-height: 1.7; color: #37474f; }
+    .comm-card .cc-focus { font-size: 0.82rem; font-weight: 700; margin-top: 10px; padding: 5px 10px; border-radius: 6px; }
+    .comm-card.corp .cc-focus { background: var(--navy); color: white; }
+    .comm-card.mktg .cc-focus { background: var(--orange); color: white; }
+    .comm-equals { text-align: center; font-size: 1.8rem; font-weight: 900; color: var(--navy); padding: 12px 0; margin-bottom: 14px; }
+
+    /* ── 第4回：リレーションシップ管理フロー ── */
+    .rm-flow { display: flex; flex-direction: column; gap: 0; margin-bottom: 18px; }
+    .rm-row { display: flex; align-items: stretch; gap: 10px; margin-bottom: 0; }
+    .rm-box { background: var(--white); border-radius: 10px; padding: 14px 18px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); flex: 1; }
+    .rm-box.sender { background: var(--light-orange); border: 2px solid #ffcc80; }
+    .rm-box.media-box { background: #fff8e1; border: 2px solid #ffe082; }
+    .rm-box.public { background: var(--light-blue); border: 2px solid var(--border); }
+    .rm-box .rm-label { font-size: 0.78rem; font-weight: 700; color: var(--gray-text); margin-bottom: 5px; letter-spacing: 0.06em; }
+    .rm-box .rm-title { font-size: 0.95rem; font-weight: 900; color: var(--navy); }
+    .rm-box .rm-detail { font-size: 0.8rem; color: #37474f; margin-top: 5px; line-height: 1.5; }
+    .rm-arrow { display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--orange); flex-shrink: 0; padding: 0 2px; }
+
+    /* ── 第4回：ステークホルダー一覧 ── */
+    .stakeholder-wrap { background: var(--white); border-radius: 12px; padding: 20px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 18px; }
+    .stakeholder-wrap h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .sh-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .sh-tag { background: var(--light-blue); color: var(--navy); border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; font-size: 0.78rem; font-weight: 700; }
+
+    /* ── フッター ── */
+    footer { background: var(--navy); color: rgba(255,255,255,0.7); text-align: center; padding: 26px 24px; font-size: 0.8rem; margin-top: 60px; }
+    footer strong { color: var(--white); }
+
+    /* ── レスポンシブ ── */
+    @media (max-width: 640px) {
+      header { padding: 32px 18px 28px; }
+      header h1 { font-size: 1.35rem; }
+      main { padding: 0 12px; }
+      nav { padding: 0 12px; }
+      .resource-grid, .compare-grid, .eval-grid, .three-forces, .corona-grid, .relations-grid, .comm-compare { grid-template-columns: 1fr; }
+      .comm-equals { font-size: 1.1rem; }
+      .resource-card.integrator { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="header-tags">
+    <span class="header-tag">第2回 10/8 — 基本概念と定義</span>
+    <span class="header-tag new">第3回 10/15 — 歴史的背景</span>
+    <span class="header-tag new">第4回 10/22 — 様々なリレーションズ NEW</span>
+  </div>
+  <h1>パブリック・リレーションズ概論<br>総合学習資料（第2・3・4回）</h1>
+  <p class="sub">次世代のリーダーのためのPR理論 ／ 早稲田大学 2020年度</p>
+  <div class="header-meta">
+    <span>👤 尾上 玲円奈（早稲田大学非常勤講師）</span>
+    <span>🎓 ゲスト：井之上 喬（京都大学特命教授）</span>
+    <span>🏢 井之上パブリックリレーションズ</span>
+  </div>
+</header>
+
+<!-- ナビ -->
+<nav>
+  <a href="#s1">はじめに</a>
+  <a href="#s2">基本概念・定義</a>
+  <a href="#s3">PRとは何か</a>
+  <a href="#s4">日本の課題</a>
+  <a href="#s5" class="new-badge">PR発展史</a>
+  <a href="#s6" class="new-badge">グローバル化</a>
+  <a href="#s7" class="new-badge">コロナとPR</a>
+  <a href="#s8">事例</a>
+  <a href="#s9">評価・参考</a>
+  <a href="#s10" class="new-badge">様々なリレーションズ</a>
+  <a href="#s11" class="new-badge">コーポレート/マーケティング</a>
+  <a href="#s12" class="new-badge">リレーションシップ管理</a>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════════════════════
+     SECTION 1 — はじめに
+════════════════════════════════════════ -->
+<section id="s1">
+  <div class="section-label">
+    <div class="section-num">1</div>
+    <h2>はじめに <span class="lecture-badge">第2回 + 第3回 + 第4回</span></h2>
+  </div>
+
+  <div class="card">
+    <h3>第2回授業（10/8）の目的</h3>
+    <p>パブリック・リレーションズ（PR）の基本概念を理解し、次世代を担う学生にとってPRが重要な知識であることを学ぶ。また、他の先進国の現状を知ると共に、<strong>日本がPR分野で遅れをとっているのは何故か</strong>、遅れが具体的にどのような形で日本や日本企業に影響を与えているのかを理解し、認識を深める。</p>
+  </div>
+
+  <div class="card green">
+    <h3>第3回授業（10/15）の目的</h3>
+    <p>京都大学経営管理大学院の<strong>井之上喬 特命教授</strong>をゲスト講師としてお招きし、20世紀に世界最強の経済・軍事大国になった米国におけるPR概念の変遷を学んだ上で、組織体が如何にPRを必要とし、意思決定の中に組み込むに至ったかを学習する。また、日本にはいつどのようにPRが導入されたか、PRの発展の遅れにより日本がどのような不利益を受けたかを理解し、将来どのような対応が必要かを考える。</p>
+  </div>
+
+  <div class="card orange">
+    <h3>第4回授業（10/22）の目的 <span class="lecture-badge l4">第4回</span></h3>
+    <p>パブリック・リレーションズ（PR）の傘の下にある、<strong>メディア・リレーションズ</strong>を始め、<strong>インベスター・リレーションズ（IR）</strong>、<strong>ガバメント・リレーションズ（GR）</strong>など様々なリレーションズについて詳しく学ぶと共に、企業内で2つに大別されることの多い<strong>コーポレート・コミュニケーション</strong>及び<strong>マーケティング・コミュニケーション</strong>との位置付けを確認する。また、個人や組織体の<strong>リレーションシップ・マネジメント</strong>と、プロフェッショナルが関わった場合のリレーションシップ・マネジメントのあり方との相違点についても理解を深める。</p>
+  </div>
+
+  <div class="card orange">
+    <h3>前回（第3回）授業の質問 Q&A <span class="lecture-badge l4">第4回冒頭</span></h3>
+    <table style="margin-top:8px;">
+      <thead><tr><th style="background:var(--orange);">質問（学生）</th><th style="background:var(--orange);">回答（井之上先生より）</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Q1（文化構想学部1年 佐藤優音）</strong><br>G7の中で日本が突出して企業の不祥事が多いのは、ハイコンテキスト社会であることと関係しているか？</td>
+          <td>日本企業は集団で物事を隠す傾向が強く、ハイコンテキスト型の<strong>以心伝心・忖度・同調圧力</strong>に起因している。個々人に<strong>倫理観</strong>があればはねのける力を得られるが、日本社会には倫理観が希薄で「双方向性」環境が見られず「自己修正」に至らないケースが多い。他のG7国はキリスト教を社会基盤としており、日本はいわゆるバックボーンがない状態といえる。</td>
+        </tr>
+        <tr>
+          <td><strong>Q2（高等学院2年 木村勇翔）</strong><br>河野太郎・行政改革担当大臣のTwitterでの情報発信、双方向性コミュニケーション・実行力からPR活動をどのように評価できるか？</td>
+          <td>河野大臣は海外留学経験者であり、オープンマインドがある政治家。民主主義が何であるかを理解し、実践しようとする姿勢が見られる。他の政治家よりも<strong>パブリック・リレーションズが何であるかを理解している</strong>方だといえる。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 2 — 基本概念と定義
+════════════════════════════════════════ -->
+<section id="s2">
+  <div class="section-label">
+    <div class="section-num">2</div>
+    <h2>パブリック・リレーションズの基本概念と定義 <span class="lecture-badge">第2回</span></h2>
+  </div>
+
+  <div class="card">
+    <h3>PRとは何の略か？</h3>
+    <p style="font-size:1.35rem;font-weight:900;color:var(--navy);margin-top:8px;">
+      PR ≠ Promotion（宣伝・プロモーション）<br>
+      <span style="color:var(--blue);">PR ＝ Public Relations（パブリック・リレーションズ）</span>
+    </p>
+  </div>
+
+  <!-- 定義1 -->
+  <div class="def-box">
+    <div class="year-tag">1976年 — レックス・F・ハーロウ（スタンフォード大学教授）</div>
+    <blockquote>「パブリック・リレーションズが、一企業体とパブリック（一般社会）との間の相互のコミュニケーション、理解、合意、協力関係の樹立、維持を助け、課題に対する論争に経営者を巻き込み、経営者に世論の動向を知らせ、その対処を助け、パブリックの利益に奉仕するための経営者の責任をはっきりと認識させ、社会の趨勢を予知するための警報システムとして経営者と一体となって変化を有効に利用し、さらにその最も重要なツールとして調査と健全かつ倫理に沿ったコミュニケーションに利用する、<strong>マネジメント（管理）機能の役割を果たすものである。</strong>」</blockquote>
+    <div class="source">— レックス・F・ハーロウ（1976年）</div>
+  </div>
+
+  <!-- 定義2 -->
+  <div class="def-box">
+    <div class="year-tag">1982年 — 米国パブリックリレーションズ協会（PRSA）</div>
+    <blockquote>「パブリック・リレーションズは、各種団体、機関の相互理解に貢献することによって多元的社会が意思決定を行い、より効果的に機能することに貢献するものである。また、パブリック・リレーションズはわれわれの社会のさまざまな団体、組織に奉仕するものであり、これらの団体・組織がそれぞれの目標を達成するためには、従業員、会員、顧客、地方企業、株主などそれぞれ違った分野のパブリック、すなわち<strong>社会全体と効果的な関係を育てていかなければならない。</strong>」</blockquote>
+    <div class="source">— PRSA（1982年）</div>
+  </div>
+
+  <!-- 定義3 最新 -->
+  <div class="def-highlight">
+    <div class="label">✦ 現行定義（2012年）— PRSA最新・世界標準</div>
+    <div class="en">"Public relations is a strategic communication process that builds mutually beneficial relationships between organizations and their publics."</div>
+    <div class="ja">「パブリック・リレーションズは<strong>組織とそれを取り巻く様々なパブリックとの間の相互関係を有益なものとするための戦略的なコミュニケーション・プロセス</strong>である」</div>
+    <div class="source">— 米国パブリックリレーションズ協会（PRSA）2012年</div>
+  </div>
+
+  <!-- 定義4 井之上 -->
+  <div class="inoue-def">
+    <div class="title">井之上 喬による定義（日本を代表するPR研究者・実務家）</div>
+    <div class="core">個人や組織体が最短距離で目標や目的を達成する</div>
+    <div style="margin:14px 0;">
+      <div class="keyword">『倫理観』</div>
+      <div class="connector">に支えられた</div>
+      <div class="keyword" style="margin-top:10px;">『双方向性コミュニケーション』</div>
+      <div class="connector">と</div>
+      <div class="keyword" style="margin-top:10px;">『自己修正』</div>
+      <div class="connector">をベースとした リレーションズ活動である</div>
+    </div>
+    <div class="source">— 井之上 喬（井之上パブリックリレーションズ 代表取締役会長兼CEO）</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 3 — PRとは何か
+════════════════════════════════════════ -->
+<section id="s3">
+  <div class="section-label">
+    <div class="section-num">3</div>
+    <h2>パブリック・リレーションズとは何か <span class="lecture-badge">第2回</span></h2>
+  </div>
+
+  <div class="big-quote">
+    <p>「パブリック・リレーションズは21世紀最強のリアルタイム・ソフトウェア」</p>
+    <div class="by">— 井之上 喬 ／ 「戦略的な攻めと守り」の両面を兼ね備えた手法</div>
+  </div>
+
+  <div class="card">
+    <h3>PRの本質的な定義（集約）</h3>
+    <p style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:10px;">パブリック・リレーションズ＝<strong>社会全体との戦略的で持続的な関係構築活動</strong></p>
+    <p>組織体がそのターゲット（ステークホルダー）との関係構築・維持（リレーションズ）を図る行為の総体をパブリック・リレーションズという。パブリックとは一般社会全体（国際社会を含む）を指す。</p>
+  </div>
+
+  <div class="card" style="margin-bottom:14px;">
+    <h3>経営における「第5の経営資源」</h3>
+    <p>「人」「モノ」「金」「情報」という4つの経営資源を<strong>個々に強化し、統合する</strong>機能を担う。</p>
+  </div>
+  <div class="resource-grid">
+    <div class="resource-card"><div class="label">人</div><p>企業のレピュテーションを高めることで有能な人材を集め、倫理教育や従業員との良好な関係で相互理解を深め個人を強化</p></div>
+    <div class="resource-card"><div class="label">モノ</div><p>資産や物流管理におけるリスク・マネジメントやブランディングによる高付加価値を実現</p></div>
+    <div class="resource-card"><div class="label">金</div><p>IR（投資家向け広報）をとおして資金調達や企業の時価総額を健全に確保</p></div>
+    <div class="resource-card"><div class="label">情報</div><p>インターネット社会における情報管理や双方向コミュニケーションによる情報の有効活用をおこなう</p></div>
+    <div class="resource-card integrator"><div class="label">🔗 PR（統合）＝最短距離での目標達成</div><p>4つの強化された個々を統合し、有機的に機能させ最大限のシナジー効果を発揮させることで、<strong>最短距離での目標（目的）達成を可能にする。</strong></p></div>
+  </div>
+
+  <div class="card">
+    <h3>様々なリレーションズと主なターゲット</h3>
+  </div>
+  <table>
+    <thead><tr><th>リレーションズの種類</th><th>主なターゲット</th></tr></thead>
+    <tbody>
+      <tr><td><strong>メディア・リレーションズ</strong></td><td>新聞、雑誌、通信社、ラジオ、テレビ、オンラインメディア</td></tr>
+      <tr><td><strong>インベスター・リレーションズ</strong></td><td>株主、投資家、証券アナリスト</td></tr>
+      <tr><td><strong>ガバメント・リレーションズ</strong></td><td>中央政府、地方自治体、政治家、官僚</td></tr>
+      <tr><td><strong>エンプロイー・リレーションズ</strong></td><td>従業員、労働組合、従業員家族、パートタイマー</td></tr>
+      <tr><td><strong>コミュニティー・リレーションズ</strong></td><td>地域社会、市民団体、NGO</td></tr>
+      <tr><td><strong>カスタマー・リレーションズ</strong></td><td>顧客（潜在層を含む）、ビジネスパートナー</td></tr>
+      <tr><td><strong>アソシエーション・リレーションズ</strong></td><td>各種経済・商工・業界団体、関係者</td></tr>
+      <tr><td><strong>インダストリー・リレーションズ</strong></td><td>関係する産業分野（例：半導体、自動車など）</td></tr>
+      <tr><td><strong>その他リレーションズ</strong></td><td>その他ターゲット（ステークホルダー）</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 4 — 日本の課題
+════════════════════════════════════════ -->
+<section id="s4">
+  <div class="section-label">
+    <div class="section-num">4</div>
+    <h2>日本がPR分野で遅れをとっているのは何故か <span class="lecture-badge">第2回</span></h2>
+  </div>
+
+  <div class="card">
+    <h3>歴史的要因</h3>
+    <table style="margin-top:8px;">
+      <thead><tr><th>#</th><th>要因</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>島国が育んだ建国以来の <strong>単一的民族構成</strong></td></tr>
+        <tr><td>2</td><td>上下関係の厳しさや寡黙を求められる <strong>儒教的考え方</strong></td></tr>
+        <tr><td>3</td><td>江戸時代の <strong>260年に及ぶ鎖国体制</strong></td></tr>
+        <tr><td>4</td><td><strong>広告代理店内にPRセクションが新設</strong>されたことが始まり</td></tr>
+        <tr><td>5</td><td>自由民主党の一党支配で形成された <strong>政・官・財協調体制</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-bottom:14px;"><h3>文化的要因：コンテキスト型の違い</h3></div>
+  <div class="compare-grid">
+    <div class="compare-card japan">
+      <h4>🇯🇵 日本：ハイ・コンテキスト型社会</h4>
+      <p>文化的コードが暗黙裡に共有されており、「暗黙の了解」による情報量の節約が可能。言わなくても伝わる文化。間違いを犯したとき言い訳をしないことでアカウンタビリティが弱まる。</p>
+    </div>
+    <div class="compare-card west">
+      <h4>🌍 欧米：ロー・コンテキスト型社会</h4>
+      <p>共有される文化的コードが少ないため、明確に言語化された情報を大量に伝達する必要がある。明確な意思表示・説明責任が基本。<strong>パブリック・リレーションズはローコンテキスト型。</strong></p>
+    </div>
+  </div>
+  <div class="big-quote" style="margin-top:0;">
+    <p>グローバル化の現代では「オープン」「フェア」「スピード」が求められる</p>
+    <div class="by">⇒ 日本全体のパブリック・リレーションズ力強化が急務</div>
+  </div>
+
+  <div class="card">
+    <h3>主要国のPR協会会員数（2006年時点）</h3>
+    <div class="bar-chart" style="margin-top:14px;">
+      <div class="bar-row"><div class="bar-label">アメリカ</div><div class="bar-wrap"><div class="bar-fill" style="width:100%;"><span>20,000人</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">イギリス</div><div class="bar-wrap"><div class="bar-fill" style="width:40%;"><span>8,000人</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">フランス</div><div class="bar-wrap"><div class="bar-fill" style="width:10%;"><span>2,000人</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">ドイツ</div><div class="bar-wrap"><div class="bar-fill" style="width:9.4%;"><span>1,870人</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">カナダ</div><div class="bar-wrap"><div class="bar-fill" style="width:7.8%;"><span>1,560人</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">イタリア</div><div class="bar-wrap"><div class="bar-fill" style="width:5.3%;"><span>1,050人</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">日本</div><div class="bar-wrap"><div class="bar-fill japan" style="width:2.3%;"><span>450人</span></div></div></div>
+    </div>
+    <p style="font-size:0.78rem;color:var(--gray-text);">※ 日本はアメリカの約2.3%。世界との大きな格差が存在する。</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 5 — PR発展史（第3回）NEW
+════════════════════════════════════════ -->
+<section id="s5">
+  <div class="section-label">
+    <div class="section-num lecture3">5</div>
+    <h2>PRの歴史的背景：米国・日本の発展史 <span class="lecture-badge l3">第3回 NEW</span></h2>
+  </div>
+
+  <!-- ゲスト講師 -->
+  <div class="guest-card">
+    <div class="g-name">井之上 喬（いのうえ・たかし）</div>
+    <div class="g-title">京都大学経営管理大学院 特命教授 ／ 株式会社井之上パブリックリレーションズ 代表取締役会長兼CEO</div>
+    <p>早稲田大学第一商学部卒業、早稲田大学大学院公共経営研究科博士後期課程修了（博士・公共経営）。日本楽器製造株式会社（現ヤマハ株式会社）を経て、1970年に（株）井之上パブリックリレーションズを設立。以来、インテルやアップルをはじめとして広範なPRコンサルテーション業務を手がける。</p>
+    <p>日本の通信市場開放や日米半導体摩擦の解消、激化する日米自動車摩擦の中で国内自動車部品市場の規制緩和プログラムに貢献。アジアのPR協会として初めて国際PR協会からゴールデンワールドアワードの最優秀グランプリを授与される（1997年）。</p>
+    <div class="books">
+      <h4>主な著作</h4>
+      <ul>
+        <li>『入門・パブリックリレーションズ』（PHP研究所, 2001）</li>
+        <li>『パブリックリレーションズ』（日本評論社, 2006）</li>
+        <li>『「説明責任」とは何か』（PHP研究所, 2009）</li>
+        <li>『パブリックリレーションズ 第2版』（日本評論社, 2015）</li>
+        <li><em>Public Relations in Hyper-globalization: Essential Relationship Management – A Japan Perspective</em>（Routledge, 2018）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 米国PR発展史 -->
+  <div class="card green">
+    <h3>米国におけるPRの発展史</h3>
+    <p style="margin-bottom:16px;">パブリック・リレーションズが意識されはじめたのは<strong>20世紀初頭</strong>。米国における7つの成長・成熟過程（『エフェクティブ・PR』より）。</p>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">① 1900–1917</div>
+      <div class="tl-title">床苗期（Seedbed Era）</div>
+      <div class="tl-body">PRの誕生前夜。産業化・都市化が進む中、メディアや世論に対する企業・政府の対応が模索され始めた時期。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">② 1917–1919</div>
+      <div class="tl-title">第一次世界大戦期</div>
+      <div class="tl-body">戦争広報委員会（クリール委員会）が大規模な世論形成を実施。PRが国家戦略として活用された最初の事例。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">③ 1919–1929</div>
+      <div class="tl-title">第一急成長期</div>
+      <div class="tl-body">エドワード・バーネイズらがPRを専門職として確立。1923年に世界初のPRの教科書を執筆。企業PR活動が急拡大。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">④ 1930–1945</div>
+      <div class="tl-title">大恐慌から第二次世界大戦期</div>
+      <div class="tl-body">経済危機・戦時下でPRが社会安定に活用。政府・企業双方でコミュニケーションの重要性が認識された。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">⑤ 1945–1965</div>
+      <div class="tl-title">第二急成長期</div>
+      <div class="tl-body">戦後の経済成長とともにPR産業が急拡大。1950年に19,000人だった米国PR実務家は1965年には急増し、PRが企業経営の中核機能となる。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">⑥ 1965–1985</div>
+      <div class="tl-title">抗議運動と市民運動の時代</div>
+      <div class="tl-body">公民権運動・ベトナム反戦・環境運動など市民の声が台頭。PRが双方向コミュニケーションとしての性格を強め、アカウンタビリティが重視されるように。ウォーターゲート事件（1972年）はPR倫理の転換点となった。</div>
+    </div>
+    <div class="tl-item last-item">
+      <div class="tl-year">⑦ 1986年〜</div>
+      <div class="tl-title">デジタル時代とグローバリゼーション</div>
+      <div class="tl-body">インターネット・SNSの普及によりPRはリアルタイム性・双方向性が飛躍的に向上。グローバル規模でのリレーションシップ・マネジメントが求められる時代へ。2002年時点で米国PR実務家は228,000人に達した。</div>
+    </div>
+  </div>
+
+  <!-- 日本PR発展史 -->
+  <div class="card green" style="margin-top:8px;">
+    <h3>日本におけるPRの発展史</h3>
+    <p style="margin-bottom:4px;">戦前の満鉄（1923年・大正12年）に「弘報係」が置かれたことが日本PRの萌芽。戦後GHQによるPR導入を経て現在に至る。</p>
+  </div>
+
+  <table class="jp-hist-table">
+    <thead><tr><th class="green-head">時代区分</th><th class="green-head">特長・目的</th><th class="green-head">問題点</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>① 1925〜1945年</strong><br><small>昭和初期〜第2次世界大戦終結（PRの萌芽期）</small></td>
+        <td>プロパガンダ型（富国強兵のための）<br>目的：大衆操作</td>
+        <td>言論の自由を抑え、世論操作を行った</td>
+      </tr>
+      <tr>
+        <td><strong>② 1947〜1952年</strong><br><small>GHQによる行政への導入期</small></td>
+        <td>パブリック・インフォメーション型（一方向性コミュニケーション）<br>目的：GHQが占領政策を遂行するため</td>
+        <td>「お知らせ」一辺倒でPRの概念・機能を誤らせた。パブリック・インフォメーションとの混同、1952年のサンフランシスコ講和条約によるGHQ引き揚げとともにPRはその求心力を急速に失った</td>
+      </tr>
+      <tr>
+        <td><strong>③ 1950年代〜</strong><br><small>米国型PRの啓発期</small></td>
+        <td>PR広告・パブリシティ型（一方向性コミュニケーション）<br>目的：企業が社会的認容を得るため</td>
+        <td>証券取引所の再開（1949）や日経連が戦後初の「経営視察団」を米国に派遣（1951）したことにより企業内に広報部門が設置。しかしPRの本来の理念や概念が浸透せず、広告代理店内にPR部門が開設されたため<strong>PR＝広告・パブリシティとの誤解</strong>を招いた</td>
+      </tr>
+      <tr>
+        <td><strong>④ 1950年代後半〜1990年</strong><br><small>高度経済成長時代におけるPRの低迷期</small></td>
+        <td>パブリシティ型（国際レベルの一方向性コミュニケーション）<br>目的：大量生産・大量消費のサイクルを創るための販売促進</td>
+        <td>マーケティングPRに特化しすぎ、広範なPR実践のための技術が導入されず。企業不祥事・公害問題、海外では貿易摩擦（半導体・自動車）に代表される問題が露呈</td>
+      </tr>
+      <tr>
+        <td><strong>⑤ 1991年〜</strong><br><small>グローバルPRへの過渡期（バブル崩壊後）</small></td>
+        <td>コーポレート・コミュニケーション（C.C.）型（双方向性コミュニケーション）<br>目的：コーポレート・シチズンを目指す</td>
+        <td>グローバル化の中で、日本の行政や経営システムの制度疲労と自己修正機能をもつ双方向性コミュニケーションが未成熟</td>
+      </tr>
+      <tr>
+        <td><strong>⑥ 2011年〜</strong><br><small>東日本大震災以降、多極化が進展する世界で新たなPRモデルが求められる</small></td>
+        <td>グローバルコミュニケーション型（双方向性コミュニケーション）<br>目的：グローバル視点で価値の共有化を図る（CSV）</td>
+        <td>グローバル化の中で、その基盤となるPRが未成熟かつダイバーシティなどの受入れ素地がない</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.78rem;color:var(--gray-text);margin-top:-8px;margin-bottom:18px;">出所：井之上喬「パブリック・リレーションズ」第2版（日本評論社, 2015）p.90</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 6 — グローバル化（第3回）NEW
+════════════════════════════════════════ -->
+<section id="s6">
+  <div class="section-label">
+    <div class="section-num lecture3">6</div>
+    <h2>グローバリゼーションとPR <span class="lecture-badge l3">第3回 NEW</span></h2>
+  </div>
+
+  <div class="card green">
+    <h3>グローバリゼーションとは（バグワティの概念）</h3>
+    <p>バグワティのグローバリゼーションの概念によると、グローバリゼーションは「パイを大きくする」という意味で経済発展に有益だが、社会に害をもたらすものだと考えている人たちもいる。経済面でのグローバリゼーションは<strong>海外移住、テクノロジーの発展、短期ポートフォリオ投資の発展、多国籍企業の対外直接投資</strong>などを促進し、さまざまな国際統合をもたらす。一方でグローバル化の社会的課題として、貧困との戦い・性差別の解消・先住民族文化と主流文化の共存なども同時に問われる。</p>
+  </div>
+
+  <div class="card green">
+    <h3>ハイパー・グローバリゼーションとは</h3>
+    <p style="margin-bottom:14px;">1990年代以降の国際貿易において「深化を続ける経済統合」を記述するために使われ始めた用語。井之上喬は、「パブリック・リレーションズ」英文版でこの用語を以下3つの力によって生み出された新たな環境を描写するために使用している。</p>
+  </div>
+  <div class="three-forces">
+    <div class="force-card">
+      <div class="num">①</div>
+      <h4>Economic force</h4>
+      <p>ビジネスの広範なグローバル化。国際貿易の拡大的成長と国境を越えた経済統合。</p>
+    </div>
+    <div class="force-card">
+      <div class="num">②</div>
+      <h4>Human communication via the Internet force</h4>
+      <p>インターネットとSNSによるデジタル通信。社会的コミュニケーションの規範が変化し社会文化的バリアが曖昧になる。</p>
+    </div>
+    <div class="force-card">
+      <div class="num">③</div>
+      <h4>Technological disruptive force</h4>
+      <p>AIとビッグデータの破壊的技術革新。IoT・ビッグデータ・AIが新たな経済・急速な社会変化をもたらし「シンギュラリティ」の時代へ。</p>
+    </div>
+  </div>
+
+  <div class="card green">
+    <h3>グローバリゼーションの社会的インパクトとPR</h3>
+    <p>ローカル → ナショナル → リージョナル → グローバルへの進展は、国家・地域の枠を超えて政治、経済（金融）、社会、文化、生活様式など地球規模での変化を促す。グローバルレベルでの様々なステークホルダーとの関わりにおいて、自己目的や組織目的を達成していくためには、関係者や関連組織との友好な関係性の構築が必須となる。</p>
+    <p style="margin-top:12px;font-size:1.05rem;font-weight:700;color:var(--green);">リレーションシップ・マネジメント ⇒ パブリック・リレーションズ</p>
+  </div>
+
+  <div class="card" style="margin-bottom:14px;"><h3>ハイコンテキスト型からローコンテキスト型へ</h3></div>
+  <div class="compare-grid">
+    <div class="compare-card japan">
+      <h4>🇯🇵 日本：ハイ・コンテキスト型社会</h4>
+      <p>文化的なコードが暗黙裡に共有されている度合いが高く、コミュニケーションの際のやりとりされる「情報量」が節約できる。<br>日本は過去2000年以上にわたり、島国に単一的民族的な共同生活をして「和」を大切にしてきた。</p>
+    </div>
+    <div class="compare-card west">
+      <h4>🌍 欧米：ロー・コンテキスト型社会</h4>
+      <p>共有される文化的コードが少ないため、明瞭にコード化された情報を大量に伝達しあわなければ意志疎通がはかりずらい。<br><strong>パブリック・リレーションズはローコンテキスト型のコミュニケーション。</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 7 — コロナとPR（第3回）NEW
+════════════════════════════════════════ -->
+<section id="s7">
+  <div class="section-label">
+    <div class="section-num lecture3">7</div>
+    <h2>コロナが政治・経済・社会を変える <span class="lecture-badge l3">第3回 NEW</span></h2>
+  </div>
+
+  <div class="card green">
+    <h3>2020年：パンデミックがもたらした世界規模の変化</h3>
+    <p>2020年の新型コロナウイルス感染症（COVID-19）のパンデミックは、政治・経済・社会のあらゆる側面に影響を与えた。PRの視点から見ると、政府・企業・国際機関それぞれのコミュニケーション戦略の巧拙が如実に現れた事例である。</p>
+  </div>
+
+  <p style="font-weight:700;color:var(--green);margin-bottom:12px;font-size:0.9rem;">■ コロナ禍がもたらした国内の社会変化</p>
+  <div class="corona-grid">
+    <div class="corona-card">
+      <h4>🏥 医療・感染予防</h4>
+      <ul>
+        <li>ソーシャルディスタンス・マスクの重要性</li>
+        <li>医療資源の不足、PCR検査の不足</li>
+        <li>防護服・フェイスシールドの不足</li>
+        <li>新型コロナウイルス治療薬の迅速承認</li>
+        <li>感染者接触アプリ（COCOA）の開発</li>
+        <li>全国の約8割の病院で経営悪化</li>
+      </ul>
+    </div>
+    <div class="corona-card">
+      <h4>🏛️ 行政</h4>
+      <ul>
+        <li>特別定額給付金による家計の支援</li>
+        <li>持続化給付金（中小企業200万円、個人事業主100万円）</li>
+        <li>雇用調整助成金</li>
+        <li>サプライチェーン改革</li>
+        <li>東京オリンピック・パラリンピックの開催延期</li>
+      </ul>
+    </div>
+    <div class="corona-card">
+      <h4>📚 教育・生活</h4>
+      <ul>
+        <li>学校休校（3月〜5月）</li>
+        <li>GIGAスクール構想前倒し、オンライン化へ</li>
+        <li>大学オンライン授業（端末・ネットワーク環境に差）</li>
+        <li>マスク・消毒液の不足、デマによるトイレットペーパー不足</li>
+        <li>飲食等デリバリー利用の拡大</li>
+      </ul>
+    </div>
+    <div class="corona-card">
+      <h4>💼 仕事・産業</h4>
+      <ul>
+        <li>テレワーク推進（全国実施率27.9%、東京都49.1%）</li>
+        <li>GDP：3、4月累計 -8.4%（リーマンショック上回る）</li>
+        <li>観光業・飲食店・遊泳娯楽・イベント・スポーツに打撃</li>
+        <li>非正規雇用の雇止めが加速</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="font-weight:700;color:var(--green);margin-bottom:12px;font-size:0.9rem;">■ コロナ禍がもたらした海外の社会変化</p>
+  <div class="corona-grid">
+    <div class="corona-card">
+      <h4>🌐 行政（海外）</h4>
+      <ul>
+        <li>EU各国：賃金支援、個人事業主・スタートアップ支援</li>
+        <li>中国：個人認証＋センシングシステム</li>
+        <li>研究リソースの開放（スパコン、論文、知財）</li>
+        <li>各国でワクチン開発、国際影響力の拡大が狙いも</li>
+        <li>「デジタル入館証」シンガポール</li>
+      </ul>
+    </div>
+    <div class="corona-card">
+      <h4>💼 仕事・産業（海外）</h4>
+      <ul>
+        <li>テレワーク・デジタルトランスフォーメーション（DX）の推進</li>
+        <li>世界の観光地が打撃</li>
+        <li>世界の自動車産業：1000億ドル銀行融資</li>
+        <li>製造革命（3Dプリンタ）：人工呼吸器・フェイスシールド</li>
+        <li>米：失業率14.7%（4月）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card green">
+    <h3>国内外識者（120名）による社会変化予測（抜粋）</h3>
+    <table style="margin-top:8px;">
+      <thead><tr><th class="green-head">分類</th><th class="green-head">キーワード・予測</th></tr></thead>
+      <tbody>
+        <tr><td><strong>デジタルシフト</strong></td><td>コロナ禍による流れは不可逆的・加速</td></tr>
+        <tr><td><strong>グローバリゼーション</strong></td><td>後退という見方と、企業レベルではリスクヘッジのためますます分散を図るという見方</td></tr>
+        <tr><td><strong>政府の在り方</strong></td><td>危機下で国家の役割が拡大したが、収束後も維持（ベーシックインカム導入も）</td></tr>
+        <tr><td><strong>リモート化・オンライン化</strong></td><td>あらゆるコミュニケーションがオンライン化。人に会うのは本当に必要な一部。直接会った時の「ライブ感覚」の価値向上</td></tr>
+        <tr><td><strong>産業構造</strong></td><td>飲食業や観光業は業種規模としてかなり縮小。オンラインによる新ビジネスが次々登場</td></tr>
+        <tr><td><strong>技術開発</strong></td><td>人間の行動変化が技術革新をリード（人間中心）。<strong>倫理観</strong>がより重要に</td></tr>
+        <tr><td><strong>企業行動</strong></td><td>利益追求だけでなく、<strong>自然と共存する考え方</strong>へ。長期目線の経営</td></tr>
+        <tr><td><strong>雇用</strong></td><td>AI活用加速により余剰労働力が増加。逆に言えば、<strong>労働から解放された社会</strong>へ</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.78rem;color:var(--gray-text);margin-top:8px;">出所：国立研究開発法人新エネルギー・産業技術総合開発機構「コロナ禍後の社会変化と期待されるイノベーション像」（2020年6月24日）</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 8 — 事例
+════════════════════════════════════════ -->
+<section id="s8">
+  <div class="section-label">
+    <div class="section-num">8</div>
+    <h2>昨今ニュースで扱われたPR事例 <span class="lecture-badge">第2回</span></h2>
+  </div>
+  <p style="margin-bottom:18px;color:var(--gray-text);">PRは日常のニュースに深く関わっている。以下の事例はいずれもPRの観点から分析できる。</p>
+  <div class="case-list">
+    <div class="case-item"><div class="case-icon">🗺️</div><div><h4>領土・領有権問題（竹島・尖閣諸島など）</h4><p>国家レベルのパブリック・リレーションズ。国際社会への情報発信・理解促進がいかに重要かを示す事例。</p></div></div>
+    <div class="case-item"><div class="case-icon">⚛️</div><div><h4>福島第一原発事故</h4><p>危機管理コミュニケーション（クライシスコミュニケーション）の典型事例。情報公開とリスクコミュニケーションのあり方が問われた。</p></div></div>
+    <div class="case-item"><div class="case-icon">🍔</div><div><h4>マクドナルド異物混入問題</h4><p>企業の危機対応とメディア・リレーションズの失敗事例。対応の遅れや情報管理の問題が企業価値を大きく毀損した。</p></div></div>
+    <div class="case-item"><div class="case-icon">🦠</div><div><h4>新型コロナウイルス対応</h4><p>政府・企業・国際機関のパブリック・リレーションズが問われた事例。WHO・各国政府のコミュニケーション戦略の差が顕在化した。</p></div></div>
+    <div class="case-item"><div class="case-icon">🗳️</div><div><h4>米国大統領選</h4><p>政治的パブリック・リレーションズの典型。候補者のメディア戦略・世論形成活動の重要性が示された。</p></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 9 — 評価・参考
+════════════════════════════════════════ -->
+<section id="s9">
+  <div class="section-label">
+    <div class="section-num">9</div>
+    <h2>授業の評価・参考図書 <span class="lecture-badge">第2・3回</span></h2>
+  </div>
+
+  <div class="eval-grid">
+    <div class="eval-card"><div class="pct">60%</div><p>試験<br>（期末のみ）</p></div>
+    <div class="eval-card"><div class="pct">30%</div><p>授業出席<br>発言・受講態度</p></div>
+    <div class="eval-card"><div class="pct">10%</div><p>レポート提出<br>（2回）</p></div>
+  </div>
+
+  <div class="card">
+    <h3>感想レポート①「パブリック・リレーションズ概論を受講するにあたって」</h3>
+    <table style="margin-top:8px;">
+      <thead><tr><th>#</th><th>設問</th></tr></thead>
+      <tbody>
+        <tr><td>①</td><td>PRに対してどのようなイメージを持っているか？PRの何をつかみたいか？</td></tr>
+        <tr><td>②</td><td>どういった分野（ビジネス、政治、行政、NPO、教育・研究など）に興味を持っているか？</td></tr>
+        <tr><td>③</td><td>自分の人生シナリオをどのように描いているか？</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px;font-size:0.86rem;color:var(--gray-text);">📅 提出期限：第5回授業 10月29日（木）5限まで ／ Word（A4）1000字程度<br>※ 提出は成績評価対象だが、内容の優劣は評価対象としない</p>
+  </div>
+
+  <div class="card green">
+    <h3>参考図書・お薦め</h3>
+    <table style="margin-top:8px;">
+      <thead><tr><th class="green-head">書籍</th><th class="green-head">備考</th></tr></thead>
+      <tbody>
+        <tr><td><strong>井之上喬『パブリックリレーションズ（第2版）』</strong><br>日本評論社, 2015</td><td>必読の一冊。テキスト。「パブリックリレーションズは経営そのものだ。」</td></tr>
+        <tr><td><strong>井之上喬『「説明責任」とは何か』</strong><br>PHP新書, 2009</td><td>第2回お薦め。メディア戦略の視点から考える。</td></tr>
+        <tr><td><strong>エドワード・バーネイズ『プロパガンダ[新版]』</strong><br>成甲書房, 2010</td><td>第3回お薦め。PRの父バーネイズによる古典的名著。PRとプロパガンダの境界を考える上で必読。</td></tr>
+        <tr><td><strong>Inoue, Takashi. <em>Public Relations in Hyper-globalization</em></strong><br>Routledge, 2018</td><td>英語版。ハイパーグローバル化時代のPR理論。</td></tr>
+        <tr><td><strong>スコット・M・カトリップ，アレン・H・センター，グレン・M・ブルーム<br>『体系 パブリック・リレーションズ』</strong>ピアソンエデュケーション, 2008</td><td>第4回お薦め。PR世界標準テキスト（Effective Public Relations 9th edition）。PRの理論・実践・倫理を体系的に解説。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 10 — 様々なリレーションズ（第4回）
+════════════════════════════════════════ -->
+<section id="s10">
+  <div class="section-label">
+    <div class="section-num lecture4">10</div>
+    <h2>様々なリレーションズ <span class="lecture-badge l4">第4回</span></h2>
+  </div>
+
+  <div class="card orange">
+    <h3>「パブリック」とは何か — 再確認</h3>
+    <p>パブリックは<strong>「公共」ではなく「一般社会」あるいは「社会全体」</strong>を指す。組織体は、ある目的を達成するためにターゲットを設定することになるが、組織体がそのターゲット（ステークホルダー）との<strong>関係構築・維持（リレーションズ）</strong>を図る行為すなわち「リレーションシップ・マネジメント」の総体をパブリック・リレーションズという。</p>
+    <p style="margin-top:10px;font-weight:700;color:var(--orange);">パブリック・リレーションズ ＝ 社会全体との戦略的で持続的な関係構築活動</p>
+  </div>
+
+  <div class="card orange">
+    <h3>様々なリレーションズと主なターゲット一覧</h3>
+    <table style="margin-top:8px;">
+      <thead><tr><th style="background:var(--orange);">リレーションズ名</th><th style="background:var(--orange);">主なターゲット（ステークホルダー）</th></tr></thead>
+      <tbody>
+        <tr><td><strong>メディア・リレーションズ</strong></td><td>新聞、雑誌、通信社、ラジオ、テレビ、オンラインメディア</td></tr>
+        <tr><td><strong>インベスター・リレーションズ（IR）</strong></td><td>株主、投資家、証券アナリストなど</td></tr>
+        <tr><td><strong>ガバメント・リレーションズ（GR）</strong></td><td>中央政府、地方自治体、政治家、官僚</td></tr>
+        <tr><td><strong>エンプロイー・リレーションズ</strong></td><td>従業員、労働組合、従業員家族、パートタイマー</td></tr>
+        <tr><td><strong>コミュニティー・リレーションズ</strong></td><td>地域社会、市民団体、NGO</td></tr>
+        <tr><td><strong>カスタマー・リレーションズ</strong></td><td>顧客（潜在層を含む）、ビジネスパートナー</td></tr>
+        <tr><td><strong>アソシエーション・リレーションズ</strong></td><td>各種経済、商工、業界団体、関係者</td></tr>
+        <tr><td><strong>インダストリー・リレーションズ</strong></td><td>関係する産業分野（例：半導体、自動車など）</td></tr>
+        <tr><td><strong>その他リレーションズ</strong></td><td>その他ターゲット（ステークホルダー）</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:8px;font-size:0.78rem;color:var(--gray-text);">出典：井之上喬（2015）『パブリック・リレーションズ（第2版）』日本評論社 P26 を参考に尾上作成</p>
+  </div>
+
+  <div class="relations-grid">
+    <div class="rel-card">
+      <div class="rel-name">📰 メディア・リレーションズ</div>
+      <div class="rel-target">対象：新聞・雑誌・通信社・ラジオ・テレビ・オンライン</div>
+      <p><strong>目的：</strong>他のリレーションズのターゲットに対してアクセスするため、コミュニケーション・チャンネルを確立する。</p>
+      <p class="point">▸ ステークホルダーにアクセスするための媒体として、影響力の強い「メディア」を対象にしたリレーションズ活動を行う。</p>
+    </div>
+    <div class="rel-card">
+      <div class="rel-name">💹 インベスター・リレーションズ（IR）</div>
+      <div class="rel-target">対象：株主・投資家・証券アナリスト</div>
+      <p><strong>目的：</strong>株主や投資家に有効な判断基準を提供し、自社の評価・価値を適正なものにする。</p>
+      <p class="point">▸ M&Aなど、企業経営・企業価値に大きな影響を与えるケースも多い。</p>
+    </div>
+    <div class="rel-card">
+      <div class="rel-name">🏛️ ガバメント・リレーションズ（GR）</div>
+      <div class="rel-target">対象：政党（政治家）・中央政府（官僚）・地方自治体</div>
+      <p><strong>目的：</strong>規制緩和や規制撤廃、法律改正など、組織体が活動しやすい環境を実現させる。</p>
+      <p class="point">▸ 行政機関を相手にするため期間が長期に渡り、情報に対する高度な分析力や鋭敏な対応が求められる。</p>
+    </div>
+    <div class="rel-card">
+      <div class="rel-name">👥 エンプロイー・リレーションズ</div>
+      <div class="rel-target">対象：組織の構成員・構成員の家族</div>
+      <p><strong>目的：</strong>組織体とその構成員の相互信頼を構築し、快適な職場環境を実現することで、組織体の成長を図る。</p>
+      <p class="point">▸ 産業構造の転換などにより、企業のリストラや吸収合併による解雇や人員整理で労使間の緊張が生まれることも多く、重要性が高まってきている。</p>
+    </div>
+    <div class="rel-card">
+      <div class="rel-name">🏘️ コミュニティー・リレーションズ</div>
+      <div class="rel-target">対象：地域社会・周辺住民</div>
+      <p><strong>目的：</strong>業績だけでなく、コーポレート・シチズン（企業市民）として地域や広く一般社会との良好な関係づくりをすることで、企業価値を高める。</p>
+      <p class="point">▸ 苦情受付や情報公開など、双方向性コミュニケーションが大切。公害問題をきっかけに重要視されるようになった。</p>
+    </div>
+    <div class="rel-card">
+      <div class="rel-name">🛒 カスタマー・リレーションズ</div>
+      <div class="rel-target">対象：顧客（潜在層を含む）・ビジネスパートナー</div>
+      <p><strong>目的：</strong>顧客や商品・サービスの享受者（消費者）を対象としたリレーションズ活動。</p>
+      <p class="point">▸ 消費者の信頼と満足を高め、長期的な顧客関係を構築する。</p>
+    </div>
+  </div>
+
+  <div class="card orange">
+    <h3>アソシエーション・リレーションズ／インダストリー・リレーションズ</h3>
+    <table style="margin-top:8px;">
+      <thead><tr><th style="background:var(--orange);">種類</th><th style="background:var(--orange);">概要</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>アソシエーション・リレーションズ</strong></td>
+          <td>経済、商工、業界団体などを対象としたリレーションズ活動。業界内の連携・規制対応・標準化活動を通じて有利な事業環境を形成する。</td>
+        </tr>
+        <tr>
+          <td><strong>インダストリー・リレーションズ</strong></td>
+          <td>関係する産業分野におけるリレーションズ活動（例えば半導体、自動車などの産業界全体）。業界団体・競合企業との関係管理も含む。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="stakeholder-wrap">
+    <h4>組織体が関係を構築するステークホルダーの全体像</h4>
+    <div class="sh-tags">
+      <span class="sh-tag">政治家</span><span class="sh-tag">取引先</span><span class="sh-tag">従業員</span>
+      <span class="sh-tag">地域社会</span><span class="sh-tag">消費者団体</span><span class="sh-tag">株主</span>
+      <span class="sh-tag">顧客</span><span class="sh-tag">地方自治体</span><span class="sh-tag">中央政府</span>
+      <span class="sh-tag">国際社会</span><span class="sh-tag">一般消費者</span><span class="sh-tag">個人投資家</span>
+      <span class="sh-tag">証券アナリスト</span><span class="sh-tag">機関投資家</span><span class="sh-tag">金融機関</span>
+      <span class="sh-tag">従業員家族</span><span class="sh-tag">海外投資家</span><span class="sh-tag">競合企業</span>
+      <span class="sh-tag">ディストリビュータ</span><span class="sh-tag">ビジネスパートナー</span>
+    </div>
+    <p style="margin-top:10px;font-size:0.8rem;color:var(--gray-text);">出典：井之上喬（2015）『パブリック・リレーションズ（第2版）』日本評論社 P17〜18 を参考に尾上作成</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 11 — コーポレート・コミュニケーションとマーケティング・コミュニケーション
+════════════════════════════════════════ -->
+<section id="s11">
+  <div class="section-label">
+    <div class="section-num lecture4">11</div>
+    <h2>コーポレート・コミュニケーションとマーケティング・コミュニケーション <span class="lecture-badge l4">第4回</span></h2>
+  </div>
+
+  <div class="comm-compare">
+    <div class="comm-card corp">
+      <div class="cc-head">コーポレート・コミュニケーション</div>
+      <p>企業が自らの<strong>哲学や理念</strong>を伝えることで企業への好意的なイメージを創出し<strong>評判（レピュテーション）</strong>を向上させることを目的とした活動。</p>
+      <p style="margin-top:8px;font-size:0.82rem;color:var(--gray-text);">※「コーポレートPR」とほぼ同義語</p>
+      <div class="cc-focus">▸ 主として企業の<strong>レピュテーション向上</strong>に寄与</div>
+    </div>
+    <div class="comm-card mktg">
+      <div class="cc-head">マーケティング・コミュニケーション</div>
+      <p>財（製品やサービス）の<strong>販売促進</strong>をサポートする目的を持ったコミュニケーション活動。</p>
+      <p style="margin-top:8px;font-size:0.82rem;color:#a0522d;">※「マーケティングPR」とほぼ同義</p>
+      <div class="cc-focus">▸ 主として財（製品やサービス）の<strong>ブランド強化</strong>に寄与</div>
+    </div>
+  </div>
+
+  <div class="comm-equals">コーポレート・コミュニケーション ＋ マーケティング・コミュニケーション ＝ パブリック・リレーションズ</div>
+
+  <div class="card orange">
+    <h3>レピュテーション・マネジメント vs ブランド・マネジメント</h3>
+    <table style="margin-top:8px;">
+      <thead><tr><th style="background:var(--orange);">概念</th><th style="background:var(--orange);">定義と目的</th><th style="background:var(--orange);">活用するコミュニケーション</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>レピュテーション</strong></td>
+          <td>評判・評価・世間が抱く印象の総体</td>
+          <td rowspan="2" style="vertical-align:middle;text-align:center;">↑</td>
+        </tr>
+        <tr>
+          <td><strong>レピュテーション・マネジメント</strong></td>
+          <td>様々な要素を基にパブリックがイメージし判断しているコーポレート・レピュテーション（企業の評判・評価）を総合的に把握し管理すること</td>
+        </tr>
+        <tr><td colspan="2" style="background:var(--light-blue);text-align:center;font-weight:700;color:var(--navy);">→「コーポレート・コミュニケーション」を駆使</td><td style="background:var(--light-blue);"></td></tr>
+        <tr>
+          <td><strong>ブランド</strong></td>
+          <td>有形・無形にさまざまなステーク・ホルダーを満足させる、包括的な価値（様々な定義が存在）</td>
+          <td rowspan="2" style="vertical-align:middle;text-align:center;">↑</td>
+        </tr>
+        <tr>
+          <td><strong>ブランド・マネジメント</strong></td>
+          <td>財の市場でのポジショニングを図り、財に対する顧客満足を維持すると共に、限られた経営資源で市場優位性を確保するためブランド構築に関する事柄を統合的に管理すること</td>
+        </tr>
+        <tr><td colspan="2" style="background:var(--light-orange);text-align:center;font-weight:700;color:var(--orange);">→「マーケティング・コミュニケーション」を駆使</td><td style="background:var(--light-orange);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card orange">
+    <h3>各コミュニケーションと様々なリレーションズの位置付け</h3>
+    <p style="margin-bottom:12px;color:var(--gray-text);font-size:0.87rem;">各リレーションズ活動は、コーポレート・コミュニケーションとマーケティング・コミュニケーションの両軸上に位置づけられる。</p>
+    <table style="margin-top:4px;">
+      <thead><tr><th style="background:var(--orange);">リレーションズ</th><th style="background:var(--orange);">主な軸</th><th style="background:var(--orange);">特徴</th></tr></thead>
+      <tbody>
+        <tr><td><strong>メディア・リレーションズ</strong></td><td>コーポレート寄り</td><td>企業・組織のレピュテーション形成に直結。他のすべてのリレーションズを支援する基盤。</td></tr>
+        <tr><td><strong>インベスター・リレーションズ</strong></td><td>コーポレート寄り</td><td>企業評価・株主価値に直接関わる。財務情報の透明な発信が中心。</td></tr>
+        <tr><td><strong>ガバメント・リレーションズ</strong></td><td>コーポレート寄り</td><td>規制・政策環境の形成。組織の中長期的な活動基盤に関わる。</td></tr>
+        <tr><td><strong>カスタマー・リレーションズ</strong></td><td>マーケティング寄り</td><td>製品・サービスの価値訴求。ブランド強化と顧客満足が主眼。</td></tr>
+        <tr><td><strong>インダストリー・リレーションズ</strong></td><td>マーケティング寄り</td><td>業界ポジショニング。市場形成・競合との差別化に関わる。</td></tr>
+        <tr><td><strong>エンプロイー・リレーションズ</strong></td><td>コーポレート寄り</td><td>組織内部の信頼構築。人的資源の最大化。</td></tr>
+        <tr><td><strong>コミュニティー・リレーションズ</strong></td><td>コーポレート寄り</td><td>地域との共生・企業市民としての価値向上。</td></tr>
+        <tr><td><strong>アソシエーション・リレーションズ</strong></td><td>中間</td><td>業界ルール形成・ロビイング活動との連携。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 12 — リレーションシップ・マネジメント
+════════════════════════════════════════ -->
+<section id="s12">
+  <div class="section-label">
+    <div class="section-num lecture4">12</div>
+    <h2>リレーションシップ・マネジメント <span class="lecture-badge l4">第4回</span></h2>
+  </div>
+
+  <div class="card orange">
+    <h3>個人とパブリックの情報結節点</h3>
+    <p>1人の人間は同時に多様な社会的役割を担っている。たとえば同じ人物でも、<strong>消費者</strong>であり、<strong>株主</strong>であり、<strong>従業員</strong>であり、<strong>市民</strong>でもある。PRはこの多層的な関係性を理解した上でコミュニケーション戦略を立てる必要がある。</p>
+    <div class="sh-tags" style="margin-top:12px;">
+      <span class="sh-tag">A Husband / 夫</span><span class="sh-tag">A Citizen / 市民</span>
+      <span class="sh-tag">A Stockholder / 株主</span><span class="sh-tag">A Consumer / 消費者</span>
+      <span class="sh-tag">A Taxpayer / 納税者</span><span class="sh-tag">An Employee / 会社員</span>
+      <span class="sh-tag">A Neighbor / 隣人</span><span class="sh-tag">A Car Owner / 自動車オーナー</span>
+      <span class="sh-tag">A Reader / 読者</span><span class="sh-tag">A Father / 父</span>
+      <span class="sh-tag">A Voter / 有権者</span><span class="sh-tag">A Music Lover / 音楽好家</span>
+    </div>
+    <p style="margin-top:10px;font-size:0.78rem;color:var(--gray-text);">出典："This is PR", 1999 Wadsworth/Thomson Learning 1999.</p>
+  </div>
+
+  <div class="card orange">
+    <h3>一般的なリレーションシップ・マネジメントの流れ</h3>
+    <div class="rm-flow" style="margin-top:12px;">
+      <div class="rm-row">
+        <div class="rm-box sender">
+          <div class="rm-label">情報発信者</div>
+          <div class="rm-title">企業・組織体</div>
+          <div class="rm-detail">国内企業・海外企業・政府機関・業界団体・NGO/NPO など</div>
+        </div>
+        <div class="rm-arrow">→</div>
+        <div class="rm-box media-box">
+          <div class="rm-label">コミュニケーション・チャンネル</div>
+          <div class="rm-title">メディア</div>
+          <div class="rm-detail">オンラインメディア、ラジオ、テレビ、通信社、新聞、雑誌</div>
+        </div>
+        <div class="rm-arrow">→</div>
+        <div class="rm-box public">
+          <div class="rm-label">受信者</div>
+          <div class="rm-title">様々なパブリック</div>
+          <div class="rm-detail">一般消費者、株主、顧客、投資機関、ビジネスパートナー、アナリスト、ディストリビュータ、中央政府機関、地方自治体、国際機関、業界団体、従業員、従業員家族、地域社会 など</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:10px;">
+        <div class="rm-box" style="flex:1;border:2px solid var(--border);font-size:0.83rem;">
+          <strong>自社標準による評価：</strong>ニュースクリッピングによるメディア露出の把握と評価
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card orange">
+    <h3>プロフェッショナルなリレーションシップ・マネジメント</h3>
+    <p style="margin-bottom:14px;color:var(--gray-text);font-size:0.87rem;">PRコンサルタントが介在することで、より戦略的かつ科学的なリレーションシップ管理が実現する。</p>
+    <table>
+      <thead><tr><th style="background:var(--orange);">要素</th><th style="background:var(--orange);">一般的なRM</th><th style="background:var(--orange);">プロフェッショナルなRM</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>体制</strong></td>
+          <td>組織体のみで管理</td>
+          <td>組織体 ＋ <strong>PRコンサルタント</strong>が協働</td>
+        </tr>
+        <tr>
+          <td><strong>機能</strong></td>
+          <td>自社標準による評価・ニュースクリッピング</td>
+          <td>自己修正機能・双方向コミュニケーション・<strong>統計手法による分析・評価</strong>・ニュースクリッピング</td>
+        </tr>
+        <tr>
+          <td><strong>戦略展開</strong></td>
+          <td>個別・断片的な対応</td>
+          <td>PR戦略として統合: メディア・リレーションズ戦略 ＋ カスタマー・リレーションズ戦略 ＋ ガバメント・リレーションズ戦略 ＋ インベスター・リレーションズ戦略 ＋ エンプロイー・リレーションズ戦略 ＋ コミュニティー・リレーションズ戦略</td>
+        </tr>
+        <tr>
+          <td><strong>フィードバック</strong></td>
+          <td>限定的・主観的</td>
+          <td>様々なパブリックから体系的にフィードバックを収集・分析し、次の戦略に活かす</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card orange">
+    <h3>お薦めの一冊 <span class="lecture-badge l4">第4回推薦</span></h3>
+    <p style="margin-top:8px;"><strong>スコット・M・カトリップ，アレン・H・センター，グレン・M・ブルーム</strong><br>
+    『<strong>体系 パブリック・リレーションズ</strong>』ピアソンエデュケーション，2008年</p>
+    <p style="margin-top:8px;font-size:0.85rem;color:var(--gray-text);">原題：<em>Effective Public Relations</em>（9th edition）。PRの古典的教科書として世界的に広く使われる標準テキスト。カトリップ・センター・ブルームの3名による共著で、PRの理論・実践・倫理を体系的に解説している。</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>早稲田大学 2020年度「パブリック・リレーションズ概論」第2回・第3回・第4回授業資料</strong><br>
+  第2回・第4回：尾上 玲円奈（井之上パブリックリレーションズ 執行役員）／
+  第3回ゲスト：井之上 喬（京都大学経営管理大学院 特命教授）<br>
+  参考文献：井之上喬（2015）『パブリック・リレーションズ（第2版）』日本評論社 ／
+  カトリップ他（2008）『体系 パブリック・リレーションズ』ピアソンエデュケーション
+</footer>
+
+</body>
+</html>
