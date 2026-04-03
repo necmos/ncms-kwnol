@@ -1,11 +1,10 @@
-import type { ComponentProps, ReactNode } from "react";
+import type { ComponentProps, ReactNode } from 'react'
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
-interface PrDataTableProps
-  extends Omit<ComponentProps<"table">, "children"> {
-  children: ReactNode;
-  className?: string;
+interface PrDataTableProps extends Omit<ComponentProps<'table'>, 'children'> {
+  children: ReactNode
+  className?: string
 }
 
 export const PrDataTable = ({
@@ -17,5 +16,5 @@ export const PrDataTable = ({
     <table className={cn(className)} {...props}>
       {children}
     </table>
-  );
-};
+  )
+}

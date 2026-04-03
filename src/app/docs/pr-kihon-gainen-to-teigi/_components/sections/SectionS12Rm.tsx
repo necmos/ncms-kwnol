@@ -1,27 +1,22 @@
-import { PrCard } from "../PrCard";
-import { PrDataTable } from "../PrDataTable";
-import {
-  PrRmArrow,
-  PrRmBox,
-  PrRmFlow,
-  PrRmRow,
-} from "../PrRmFlow";
-import { PrSectionLabel } from "../PrSectionLabel";
+import { PrCard } from '../PrCard'
+import { PrDataTable } from '../PrDataTable'
+import { PrRmArrow, PrRmBox, PrRmFlow, PrRmRow } from '../PrRmFlow'
+import { PrSectionLabel } from '../PrSectionLabel'
 
 const roleTags = [
-  "A Husband / 夫",
-  "A Citizen / 市民",
-  "A Stockholder / 株主",
-  "A Consumer / 消費者",
-  "A Taxpayer / 納税者",
-  "An Employee / 会社員",
-  "A Neighbor / 隣人",
-  "A Car Owner / 自動車オーナー",
-  "A Reader / 読者",
-  "A Father / 父",
-  "A Voter / 有権者",
-  "A Music Lover / 音楽好家",
-];
+  'A Husband / 夫',
+  'A Citizen / 市民',
+  'A Stockholder / 株主',
+  'A Consumer / 消費者',
+  'A Taxpayer / 納税者',
+  'An Employee / 会社員',
+  'A Neighbor / 隣人',
+  'A Car Owner / 自動車オーナー',
+  'A Reader / 読者',
+  'A Father / 父',
+  'A Voter / 有権者',
+  'A Music Lover / 音楽好家',
+]
 
 export const SectionS12Rm = () => {
   return (
@@ -52,12 +47,18 @@ export const SectionS12Rm = () => {
             </span>
           ))}
         </div>
-        <p className="muted-note" style={{ marginTop: 10, fontSize: "0.78rem" }}>
+        <p
+          className="muted-note"
+          style={{ marginTop: 10, fontSize: '0.78rem' }}
+        >
           出典：&quot;This is PR&quot;, 1999 Wadsworth/Thomson Learning 1999.
         </p>
       </PrCard>
 
-      <PrCard variant="orange" title="一般的なリレーションシップ・マネジメントの流れ">
+      <PrCard
+        variant="orange"
+        title="一般的なリレーションシップ・マネジメントの流れ"
+      >
         <PrRmFlow>
           <PrRmRow>
             <PrRmBox
@@ -81,13 +82,13 @@ export const SectionS12Rm = () => {
               detail="一般消費者、株主、顧客、投資機関、ビジネスパートナー、アナリスト、ディストリビュータ、中央政府機関、地方自治体、国際機関、業界団体、従業員、従業員家族、地域社会 など"
             />
           </PrRmRow>
-          <div style={{ display: "flex", gap: 10, marginTop: 10 }}>
+          <div style={{ display: 'flex', gap: 10, marginTop: 10 }}>
             <div
               className="rm-box"
               style={{
                 flex: 1,
-                border: "2px solid var(--pr-border)",
-                fontSize: "0.83rem",
+                border: '2px solid var(--pr-border)',
+                fontSize: '0.83rem',
               }}
             >
               <strong>自社標準による評価：</strong>
@@ -97,12 +98,15 @@ export const SectionS12Rm = () => {
         </PrRmFlow>
       </PrCard>
 
-      <PrCard variant="orange" title="プロフェッショナルなリレーションシップ・マネジメント">
+      <PrCard
+        variant="orange"
+        title="プロフェッショナルなリレーションシップ・マネジメント"
+      >
         <p
           style={{
             marginBottom: 14,
-            color: "var(--pr-gray-text)",
-            fontSize: "0.87rem",
+            color: 'var(--pr-gray-text)',
+            fontSize: '0.87rem',
           }}
         >
           PRコンサルタントが介在することで、より戦略的かつ科学的なリレーションシップ管理が実現する。
@@ -144,8 +148,9 @@ export const SectionS12Rm = () => {
               <td>個別・断片的な対応</td>
               <td>
                 PR戦略として統合: メディア・リレーションズ戦略 ＋
-                カスタマー・リレーションズ戦略 ＋ ガバメント・リレーションズ戦略 ＋
-                インベスター・リレーションズ戦略 ＋ エンプロイー・リレーションズ戦略 ＋
+                カスタマー・リレーションズ戦略 ＋ ガバメント・リレーションズ戦略
+                ＋ インベスター・リレーションズ戦略 ＋
+                エンプロイー・リレーションズ戦略 ＋
                 コミュニティー・リレーションズ戦略
               </td>
             </tr>
@@ -174,15 +179,14 @@ export const SectionS12Rm = () => {
           <strong>
             スコット・M・カトリップ，アレン・H・センター，グレン・M・ブルーム
           </strong>
-          <br />
-          『<strong>体系 パブリック・リレーションズ</strong>
+          <br />『<strong>体系 パブリック・リレーションズ</strong>
           』ピアソンエデュケーション，2008年
         </p>
         <p
           style={{
             marginTop: 8,
-            fontSize: "0.85rem",
-            color: "var(--pr-gray-text)",
+            fontSize: '0.85rem',
+            color: 'var(--pr-gray-text)',
           }}
         >
           原題：
@@ -192,5 +196,5 @@ export const SectionS12Rm = () => {
         </p>
       </PrCard>
     </section>
-  );
-};
+  )
+}

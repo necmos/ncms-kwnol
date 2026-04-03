@@ -1,8 +1,8 @@
-import { PrCard } from "../PrCard";
-import { PrDataTable } from "../PrDataTable";
-import { PrGuestCard } from "../PrGuestCard";
-import { PrSectionLabel } from "../PrSectionLabel";
-import { PrTimeline, PrTimelineItem } from "../PrTimeline";
+import { PrCard } from '../PrCard'
+import { PrDataTable } from '../PrDataTable'
+import { PrGuestCard } from '../PrGuestCard'
+import { PrSectionLabel } from '../PrSectionLabel'
+import { PrTimeline, PrTimelineItem } from '../PrTimeline'
 
 export const SectionS5History = () => {
   return (
@@ -11,9 +11,7 @@ export const SectionS5History = () => {
         num="5"
         sectionNumVariant="lecture3"
         title="PRの歴史的背景：米国・日本の発展史"
-        badge={
-          <span className="lecture-badge l3">第3回 NEW</span>
-        }
+        badge={<span className="lecture-badge l3">第3回 NEW</span>}
       />
 
       <PrGuestCard
@@ -29,10 +27,10 @@ export const SectionS5History = () => {
         ]}
         booksTitle="主な著作"
         books={[
-          "『入門・パブリックリレーションズ』（PHP研究所, 2001）",
-          "『パブリック・リレーションズ』（日本評論社, 2006）",
-          "『「説明責任」とは何か』（PHP研究所, 2009）",
-          "『パブリック・リレーションズ 第2版』（日本評論社, 2015）",
+          '『入門・パブリックリレーションズ』（PHP研究所, 2001）',
+          '『パブリック・リレーションズ』（日本評論社, 2006）',
+          '『「説明責任」とは何か』（PHP研究所, 2009）',
+          '『パブリック・リレーションズ 第2版』（日本評論社, 2015）',
           <>
             <em>
               Public Relations in Hyper-globalization: Essential Relationship
@@ -79,7 +77,11 @@ export const SectionS5History = () => {
         </PrTimelineItem>
       </PrTimeline>
 
-      <PrCard variant="green" style={{ marginTop: 8 }} title="日本におけるPRの発展史">
+      <PrCard
+        variant="green"
+        style={{ marginTop: 8 }}
+        title="日本におけるPRの発展史"
+      >
         <p style={{ marginBottom: 4 }}>
           戦前の満鉄（1923年・大正12年）に「弘報係」が置かれたことが日本PRの萌芽。戦後GHQによるPR導入を経て現在に至る。
         </p>
@@ -189,8 +191,9 @@ export const SectionS5History = () => {
         </tbody>
       </PrDataTable>
       <p className="muted-note" style={{ marginTop: -8, marginBottom: 18 }}>
-        出所：井之上喬「パブリック・リレーションズ」第2版（日本評論社, 2015）p.90
+        出所：井之上喬「パブリック・リレーションズ」第2版（日本評論社,
+        2015）p.90
       </p>
     </section>
-  );
-};
+  )
+}

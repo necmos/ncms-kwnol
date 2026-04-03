@@ -1,5 +1,5 @@
-import { PrCard } from "../PrCard";
-import { PrDataTable } from "../PrDataTable";
+import { PrCard } from '../PrCard'
+import { PrDataTable } from '../PrDataTable'
 
 export const SectionS10RelationsIntro = () => {
   return (
@@ -16,11 +16,10 @@ export const SectionS10RelationsIntro = () => {
           style={{
             marginTop: 10,
             fontWeight: 700,
-            color: "var(--pr-orange)",
+            color: 'var(--pr-orange)',
           }}
         >
-          パブリック・リレーションズ ＝
-          社会全体との戦略的で持続的な関係構築活動
+          パブリック・リレーションズ ＝ 社会全体との戦略的で持続的な関係構築活動
         </p>
       </PrCard>
 
@@ -92,10 +91,10 @@ export const SectionS10RelationsIntro = () => {
           </tbody>
         </PrDataTable>
         <p className="muted-note" style={{ marginTop: 8 }}>
-          出典：井之上喬（2015）『パブリック・リレーションズ（第2版）』日本評論社 P26
-          を参考に尾上作成
+          出典：井之上喬（2015）『パブリック・リレーションズ（第2版）』日本評論社
+          P26 を参考に尾上作成
         </p>
       </PrCard>
     </>
-  );
-};
+  )
+}

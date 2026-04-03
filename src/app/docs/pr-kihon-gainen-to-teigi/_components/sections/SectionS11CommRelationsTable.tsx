@@ -1,14 +1,17 @@
-import { PrCard } from "../PrCard";
-import { PrDataTable } from "../PrDataTable";
+import { PrCard } from '../PrCard'
+import { PrDataTable } from '../PrDataTable'
 
 export const SectionS11CommRelationsTable = () => {
   return (
-    <PrCard variant="orange" title="各コミュニケーションと様々なリレーションズの位置付け">
+    <PrCard
+      variant="orange"
+      title="各コミュニケーションと様々なリレーションズの位置付け"
+    >
       <p
         style={{
           marginBottom: 12,
-          color: "var(--pr-gray-text)",
-          fontSize: "0.87rem",
+          color: 'var(--pr-gray-text)',
+          fontSize: '0.87rem',
         }}
       >
         各リレーションズ活動は、コーポレート・コミュニケーションとマーケティング・コミュニケーションの両軸上に位置づけられる。
@@ -36,7 +39,9 @@ export const SectionS11CommRelationsTable = () => {
               <strong>インベスター・リレーションズ</strong>
             </td>
             <td>コーポレート寄り</td>
-            <td>企業評価・株主価値に直接関わる。財務情報の透明な発信が中心。</td>
+            <td>
+              企業評価・株主価値に直接関わる。財務情報の透明な発信が中心。
+            </td>
           </tr>
           <tr>
             <td>
@@ -83,5 +88,5 @@ export const SectionS11CommRelationsTable = () => {
         </tbody>
       </PrDataTable>
     </PrCard>
-  );
-};
+  )
+}

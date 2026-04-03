@@ -1,9 +1,9 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
 interface PrStakeholderWrapProps {
-  title: ReactNode;
-  tags: ReadonlyArray<string>;
-  footnote?: ReactNode;
+  title: ReactNode
+  tags: ReadonlyArray<string>
+  footnote?: ReactNode
 }
 
 export const PrStakeholderWrap = ({
@@ -22,10 +22,10 @@ export const PrStakeholderWrap = ({
         ))}
       </div>
       {footnote != null ? (
-        <p className="muted-note" style={{ marginTop: 10, fontSize: "0.8rem" }}>
+        <p className="muted-note" style={{ marginTop: 10, fontSize: '0.8rem' }}>
           {footnote}
         </p>
       ) : null}
     </div>
-  );
-};
+  )
+}

@@ -1,17 +1,17 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
 interface PrCompareGridProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const PrCompareGrid = ({ children }: PrCompareGridProps) => {
-  return <div className="compare-grid">{children}</div>;
-};
+  return <div className="compare-grid">{children}</div>
+}
 
 interface PrCompareCardProps {
-  variant: "japan" | "west";
-  title: ReactNode;
-  children: ReactNode;
+  variant: 'japan' | 'west'
+  title: ReactNode
+  children: ReactNode
 }
 
 export const PrCompareCard = ({
@@ -24,5 +24,5 @@ export const PrCompareCard = ({
       <h4>{title}</h4>
       <p>{children}</p>
     </div>
-  );
-};
+  )
+}

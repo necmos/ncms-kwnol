@@ -1,7 +1,7 @@
-import { PrCard } from "../PrCard";
-import { PrDataTable } from "../PrDataTable";
-import { PrEvalCard, PrEvalGrid } from "../PrEvalGrid";
-import { PrSectionLabel } from "../PrSectionLabel";
+import { PrCard } from '../PrCard'
+import { PrDataTable } from '../PrDataTable'
+import { PrEvalCard, PrEvalGrid } from '../PrEvalGrid'
+import { PrSectionLabel } from '../PrSectionLabel'
 
 export const SectionS9Eval = () => {
   return (
@@ -66,13 +66,12 @@ export const SectionS9Eval = () => {
         <p
           style={{
             marginTop: 12,
-            fontSize: "0.86rem",
-            color: "var(--pr-gray-text)",
+            fontSize: '0.86rem',
+            color: 'var(--pr-gray-text)',
           }}
         >
           📅 提出期限：第5回授業 10月29日（木）5限まで ／ Word（A4）1000字程度
-          <br />
-          ※ 提出は成績評価対象だが、内容の優劣は評価対象としない
+          <br />※ 提出は成績評価対象だが、内容の優劣は評価対象としない
         </p>
       </PrCard>
 
@@ -91,7 +90,9 @@ export const SectionS9Eval = () => {
                 <br />
                 日本評論社, 2015
               </td>
-              <td>必読の一冊。テキスト。「パブリック・リレーションズは経営そのものだ。」</td>
+              <td>
+                必読の一冊。テキスト。「パブリック・リレーションズは経営そのものだ。」
+              </td>
             </tr>
             <tr>
               <td>
@@ -114,7 +115,7 @@ export const SectionS9Eval = () => {
             <tr>
               <td>
                 <strong>
-                  Inoue, Takashi.{" "}
+                  Inoue, Takashi.{' '}
                   <em>Public Relations in Hyper-globalization</em>
                 </strong>
                 <br />
@@ -140,5 +141,5 @@ export const SectionS9Eval = () => {
         </PrDataTable>
       </PrCard>
     </section>
-  );
-};
+  )
+}

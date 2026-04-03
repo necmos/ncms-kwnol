@@ -1,6 +1,6 @@
-import { PrCard } from "../PrCard";
-import { PrDataTable } from "../PrDataTable";
-import { PrSectionLabel } from "../PrSectionLabel";
+import { PrCard } from '../PrCard'
+import { PrDataTable } from '../PrDataTable'
+import { PrSectionLabel } from '../PrSectionLabel'
 
 export const SectionS1Intro = () => {
   return (
@@ -8,9 +8,7 @@ export const SectionS1Intro = () => {
       <PrSectionLabel
         num="1"
         title="はじめに"
-        badge={
-          <span className="lecture-badge">第2回 + 第3回 + 第4回</span>
-        }
+        badge={<span className="lecture-badge">第2回 + 第3回 + 第4回</span>}
       />
 
       <PrCard title="第2回授業（10/8）の目的">
@@ -21,10 +19,7 @@ export const SectionS1Intro = () => {
         </p>
       </PrCard>
 
-      <PrCard
-        variant="green"
-        title="第3回授業（10/15）の目的"
-      >
+      <PrCard variant="green" title="第3回授業（10/15）の目的">
         <p>
           京都大学経営管理大学院の<strong>井之上喬 特命教授</strong>
           をゲスト講師としてお招きし、20世紀に世界最強の経済・軍事大国になった米国におけるPR概念の変遷を学んだ上で、組織体が如何にPRを必要とし、意思決定の中に組み込むに至ったかを学習する。また、日本にはいつどのようにPRが導入されたか、PRの発展の遅れにより日本がどのような不利益を受けたかを理解し、将来どのような対応が必要かを考える。
@@ -35,7 +30,7 @@ export const SectionS1Intro = () => {
         variant="orange"
         title={
           <>
-            第4回授業（10/22）の目的{" "}
+            第4回授業（10/22）の目的{' '}
             <span className="lecture-badge l4">第4回</span>
           </>
         }
@@ -60,7 +55,7 @@ export const SectionS1Intro = () => {
         variant="orange"
         title={
           <>
-            前回（第3回）授業の質問 Q&A{" "}
+            前回（第3回）授業の質問 Q&A{' '}
             <span className="lecture-badge l4">第4回冒頭</span>
           </>
         }
@@ -94,7 +89,9 @@ export const SectionS1Intro = () => {
               </td>
               <td>
                 河野大臣は海外留学経験者であり、オープンマインドがある政治家。民主主義が何であるかを理解し、実践しようとする姿勢が見られる。他の政治家よりも
-                <strong>パブリック・リレーションズが何であるかを理解している</strong>
+                <strong>
+                  パブリック・リレーションズが何であるかを理解している
+                </strong>
                 方だといえる。
               </td>
             </tr>
@@ -102,5 +99,5 @@ export const SectionS1Intro = () => {
         </PrDataTable>
       </PrCard>
     </section>
-  );
-};
+  )
+}

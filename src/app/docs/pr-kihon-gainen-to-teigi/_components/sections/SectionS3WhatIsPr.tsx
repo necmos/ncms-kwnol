@@ -1,8 +1,8 @@
-import { PrBigQuote } from "../PrBigQuote";
-import { PrCard } from "../PrCard";
-import { PrDataTable } from "../PrDataTable";
-import { PrResourceGrid, PrResourceCard } from "../PrResourceGrid";
-import { PrSectionLabel } from "../PrSectionLabel";
+import { PrBigQuote } from '../PrBigQuote'
+import { PrCard } from '../PrCard'
+import { PrDataTable } from '../PrDataTable'
+import { PrResourceGrid, PrResourceCard } from '../PrResourceGrid'
+import { PrSectionLabel } from '../PrSectionLabel'
 
 export const SectionS3WhatIsPr = () => {
   return (
@@ -122,5 +122,5 @@ export const SectionS3WhatIsPr = () => {
         </tbody>
       </PrDataTable>
     </section>
-  );
-};
+  )
+}

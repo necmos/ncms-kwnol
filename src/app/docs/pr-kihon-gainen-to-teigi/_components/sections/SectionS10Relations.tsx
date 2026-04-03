@@ -1,7 +1,8 @@
-import { PrSectionLabel } from "../PrSectionLabel";
-import { SectionS10RelationsAssociation } from "./SectionS10RelationsAssociation";
-import { SectionS10RelationsIntro } from "./SectionS10RelationsIntro";
-import { SectionS10RelationsRelCards } from "./SectionS10RelationsRelCards";
+import { PrSectionLabel } from '../PrSectionLabel'
+
+import { SectionS10RelationsAssociation } from './SectionS10RelationsAssociation'
+import { SectionS10RelationsIntro } from './SectionS10RelationsIntro'
+import { SectionS10RelationsRelCards } from './SectionS10RelationsRelCards'
 
 export const SectionS10Relations = () => {
   return (
@@ -17,5 +18,5 @@ export const SectionS10Relations = () => {
       <SectionS10RelationsRelCards />
       <SectionS10RelationsAssociation />
     </section>
-  );
-};
+  )
+}

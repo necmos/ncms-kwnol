@@ -1,17 +1,17 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
 interface PrResourceGridProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const PrResourceGrid = ({ children }: PrResourceGridProps) => {
-  return <div className="resource-grid">{children}</div>;
-};
+  return <div className="resource-grid">{children}</div>
+}
 
 interface PrResourceCardProps {
-  label: ReactNode;
-  integrator?: boolean;
-  children: ReactNode;
+  label: ReactNode
+  integrator?: boolean
+  children: ReactNode
 }
 
 export const PrResourceCard = ({
@@ -20,9 +20,9 @@ export const PrResourceCard = ({
   children,
 }: PrResourceCardProps) => {
   return (
-    <div className={`resource-card ${integrator ? "integrator" : ""}`.trim()}>
+    <div className={`resource-card ${integrator ? 'integrator' : ''}`.trim()}>
       <div className="label">{label}</div>
       <p>{children}</p>
     </div>
-  );
-};
+  )
+}

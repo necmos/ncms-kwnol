@@ -1,7 +1,7 @@
-import { PrCard } from "../PrCard";
-import { PrCompareCard, PrCompareGrid } from "../PrCompareGrid";
-import { PrSectionLabel } from "../PrSectionLabel";
-import { PrForceCard, PrThreeForces } from "../PrThreeForces";
+import { PrCard } from '../PrCard'
+import { PrCompareCard, PrCompareGrid } from '../PrCompareGrid'
+import { PrSectionLabel } from '../PrSectionLabel'
+import { PrForceCard, PrThreeForces } from '../PrThreeForces'
 
 export const SectionS6Global = () => {
   return (
@@ -13,7 +13,10 @@ export const SectionS6Global = () => {
         badge={<span className="lecture-badge l3">第3回 NEW</span>}
       />
 
-      <PrCard variant="green" title="グローバリゼーションとは（バグワティの概念）">
+      <PrCard
+        variant="green"
+        title="グローバリゼーションとは（バグワティの概念）"
+      >
         <p>
           バグワティのグローバリゼーションの概念によると、グローバリゼーションは「パイを大きくする」という意味で経済発展に有益だが、社会に害をもたらすものだと考えている人たちもいる。経済面でのグローバリゼーションは
           <strong>
@@ -41,25 +44,35 @@ export const SectionS6Global = () => {
         </PrForceCard>
       </PrThreeForces>
 
-      <PrCard variant="green" title="グローバリゼーションの社会的インパクトとPR">
+      <PrCard
+        variant="green"
+        title="グローバリゼーションの社会的インパクトとPR"
+      >
         <p>
-          ローカル → ナショナル → リージョナル → グローバルへの進展は、国家・地域の枠を超えて政治、経済（金融）、社会、文化、生活様式など地球規模での変化を促す。グローバルレベルでの様々なステークホルダーとの関わりにおいて、自己目的や組織目的を達成していくためには、関係者や関連組織との友好な関係性の構築が必須となる。
+          ローカル → ナショナル → リージョナル →
+          グローバルへの進展は、国家・地域の枠を超えて政治、経済（金融）、社会、文化、生活様式など地球規模での変化を促す。グローバルレベルでの様々なステークホルダーとの関わりにおいて、自己目的や組織目的を達成していくためには、関係者や関連組織との友好な関係性の構築が必須となる。
         </p>
         <p
           style={{
             marginTop: 12,
-            fontSize: "1.05rem",
+            fontSize: '1.05rem',
             fontWeight: 700,
-            color: "var(--pr-green)",
+            color: 'var(--pr-green)',
           }}
         >
           リレーションシップ・マネジメント ⇒ パブリック・リレーションズ
         </p>
       </PrCard>
 
-      <PrCard className="mb-[14px]" title="ハイコンテキスト型からローコンテキスト型へ" />
+      <PrCard
+        className="mb-[14px]"
+        title="ハイコンテキスト型からローコンテキスト型へ"
+      />
       <PrCompareGrid>
-        <PrCompareCard variant="japan" title="🇯🇵 日本：ハイ・コンテキスト型社会">
+        <PrCompareCard
+          variant="japan"
+          title="🇯🇵 日本：ハイ・コンテキスト型社会"
+        >
           文化的なコードが暗黙裡に共有されている度合いが高く、コミュニケーションの際のやりとりされる「情報量」が節約できる。
           <br />
           日本は過去2000年以上にわたり、島国に単一的民族的な共同生活をして「和」を大切にしてきた。
@@ -67,9 +80,11 @@ export const SectionS6Global = () => {
         <PrCompareCard variant="west" title="🌍 欧米：ロー・コンテキスト型社会">
           共有される文化的コードが少ないため、明瞭にコード化された情報を大量に伝達しあわなければ意志疎通がはかりずらい。
           <br />
-          <strong>パブリック・リレーションズはローコンテキスト型のコミュニケーション。</strong>
+          <strong>
+            パブリック・リレーションズはローコンテキスト型のコミュニケーション。
+          </strong>
         </PrCompareCard>
       </PrCompareGrid>
     </section>
-  );
-};
+  )
+}

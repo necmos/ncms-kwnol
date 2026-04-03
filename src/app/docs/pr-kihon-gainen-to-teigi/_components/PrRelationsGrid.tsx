@@ -1,18 +1,18 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
 interface PrRelationsGridProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const PrRelationsGrid = ({ children }: PrRelationsGridProps) => {
-  return <div className="relations-grid">{children}</div>;
-};
+  return <div className="relations-grid">{children}</div>
+}
 
 interface PrRelCardProps {
-  name: ReactNode;
-  target: ReactNode;
-  children: ReactNode;
-  point: ReactNode;
+  name: ReactNode
+  target: ReactNode
+  children: ReactNode
+  point: ReactNode
 }
 
 export const PrRelCard = ({
@@ -28,5 +28,5 @@ export const PrRelCard = ({
       {children}
       <p className="point">{point}</p>
     </div>
-  );
-};
+  )
+}

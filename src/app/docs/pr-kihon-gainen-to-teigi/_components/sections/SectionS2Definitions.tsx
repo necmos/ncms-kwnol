@@ -1,8 +1,8 @@
-import { PrCard } from "../PrCard";
-import { PrDefBox } from "../PrDefBox";
-import { PrDefHighlight } from "../PrDefHighlight";
-import { PrInoueDef } from "../PrInoueDef";
-import { PrSectionLabel } from "../PrSectionLabel";
+import { PrCard } from '../PrCard'
+import { PrDefBox } from '../PrDefBox'
+import { PrDefHighlight } from '../PrDefHighlight'
+import { PrInoueDef } from '../PrInoueDef'
+import { PrSectionLabel } from '../PrSectionLabel'
 
 export const SectionS2Definitions = () => {
   return (
@@ -40,7 +40,9 @@ export const SectionS2Definitions = () => {
         quote={
           <>
             「パブリック・リレーションズは、各種団体、機関の相互理解に貢献することによって多元的社会が意思決定を行い、より効果的に機能することに貢献するものである。また、パブリック・リレーションズはわれわれの社会のさまざまな団体、組織に奉仕するものであり、これらの団体・組織がそれぞれの目標を達成するためには、従業員、会員、顧客、地方企業、株主などそれぞれ違った分野のパブリック、すなわち
-            <strong>社会全体と効果的な関係を育てていかなければならない。</strong>
+            <strong>
+              社会全体と効果的な関係を育てていかなければならない。
+            </strong>
             」
           </>
         }
@@ -66,7 +68,7 @@ export const SectionS2Definitions = () => {
         title="井之上 喬による定義（日本を代表するPR研究者・実務家）"
         core="個人や組織体が最短距離で目標や目的を達成する"
         keywordsBlock={
-          <div style={{ margin: "14px 0" }}>
+          <div style={{ margin: '14px 0' }}>
             <div className="keyword">『倫理観』</div>
             <div className="connector">に支えられた</div>
             <div className="keyword" style={{ marginTop: 10 }}>
@@ -76,11 +78,13 @@ export const SectionS2Definitions = () => {
             <div className="keyword" style={{ marginTop: 10 }}>
               『自己修正』
             </div>
-            <div className="connector">をベースとした リレーションズ活動である</div>
+            <div className="connector">
+              をベースとした リレーションズ活動である
+            </div>
           </div>
         }
         source="— 井之上 喬（井之上パブリックリレーションズ 代表取締役会長兼CEO）"
       />
     </section>
-  );
-};
+  )
+}

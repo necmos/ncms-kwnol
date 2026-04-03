@@ -1,10 +1,10 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
 interface PrDefHighlightProps {
-  label: ReactNode;
-  en: ReactNode;
-  ja: ReactNode;
-  source: ReactNode;
+  label: ReactNode
+  en: ReactNode
+  ja: ReactNode
+  source: ReactNode
 }
 
 export const PrDefHighlight = ({
@@ -20,5 +20,5 @@ export const PrDefHighlight = ({
       <div className="ja">{ja}</div>
       <div className="source">{source}</div>
     </div>
-  );
-};
+  )
+}

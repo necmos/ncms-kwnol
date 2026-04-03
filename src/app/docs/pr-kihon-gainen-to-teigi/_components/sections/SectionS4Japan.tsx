@@ -1,9 +1,9 @@
-import { PrBarChart, PrBarRow } from "../PrBarChart";
-import { PrBigQuote } from "../PrBigQuote";
-import { PrCard } from "../PrCard";
-import { PrCompareCard, PrCompareGrid } from "../PrCompareGrid";
-import { PrDataTable } from "../PrDataTable";
-import { PrSectionLabel } from "../PrSectionLabel";
+import { PrBarChart, PrBarRow } from '../PrBarChart'
+import { PrBigQuote } from '../PrBigQuote'
+import { PrCard } from '../PrCard'
+import { PrCompareCard, PrCompareGrid } from '../PrCompareGrid'
+import { PrDataTable } from '../PrDataTable'
+import { PrSectionLabel } from '../PrSectionLabel'
 
 export const SectionS4Japan = () => {
   return (
@@ -51,7 +51,8 @@ export const SectionS4Japan = () => {
             <tr>
               <td>5</td>
               <td>
-                自由民主党の一党支配で形成された <strong>政・官・財協調体制</strong>
+                自由民主党の一党支配で形成された{' '}
+                <strong>政・官・財協調体制</strong>
               </td>
             </tr>
           </tbody>
@@ -60,7 +61,10 @@ export const SectionS4Japan = () => {
 
       <PrCard className="mb-[14px]" title="文化的要因：コンテキスト型の違い" />
       <PrCompareGrid>
-        <PrCompareCard variant="japan" title="🇯🇵 日本：ハイ・コンテキスト型社会">
+        <PrCompareCard
+          variant="japan"
+          title="🇯🇵 日本：ハイ・コンテキスト型社会"
+        >
           文化的コードが暗黙裡に共有されており、「暗黙の了解」による情報量の節約が可能。言わなくても伝わる文化。間違いを犯したとき言い訳をしないことでアカウンタビリティが弱まる。
         </PrCompareCard>
         <PrCompareCard variant="west" title="🌍 欧米：ロー・コンテキスト型社会">
@@ -97,5 +101,5 @@ export const SectionS4Japan = () => {
         </p>
       </PrCard>
     </section>
-  );
-};
+  )
+}

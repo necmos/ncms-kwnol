@@ -1,34 +1,37 @@
-import { PrCard } from "../PrCard";
-import { PrDataTable } from "../PrDataTable";
-import { PrStakeholderWrap } from "../PrStakeholderWrap";
+import { PrCard } from '../PrCard'
+import { PrDataTable } from '../PrDataTable'
+import { PrStakeholderWrap } from '../PrStakeholderWrap'
 
 const stakeholderTags = [
-  "政治家",
-  "取引先",
-  "従業員",
-  "地域社会",
-  "消費者団体",
-  "株主",
-  "顧客",
-  "地方自治体",
-  "中央政府",
-  "国際社会",
-  "一般消費者",
-  "個人投資家",
-  "証券アナリスト",
-  "機関投資家",
-  "金融機関",
-  "従業員家族",
-  "海外投資家",
-  "競合企業",
-  "ディストリビュータ",
-  "ビジネスパートナー",
-] as const;
+  '政治家',
+  '取引先',
+  '従業員',
+  '地域社会',
+  '消費者団体',
+  '株主',
+  '顧客',
+  '地方自治体',
+  '中央政府',
+  '国際社会',
+  '一般消費者',
+  '個人投資家',
+  '証券アナリスト',
+  '機関投資家',
+  '金融機関',
+  '従業員家族',
+  '海外投資家',
+  '競合企業',
+  'ディストリビュータ',
+  'ビジネスパートナー',
+] as const
 
 export const SectionS10RelationsAssociation = () => {
   return (
     <>
-      <PrCard variant="orange" title="アソシエーション・リレーションズ／インダストリー・リレーションズ">
+      <PrCard
+        variant="orange"
+        title="アソシエーション・リレーションズ／インダストリー・リレーションズ"
+      >
         <PrDataTable style={{ marginTop: 8 }}>
           <thead>
             <tr>
@@ -63,5 +66,5 @@ export const SectionS10RelationsAssociation = () => {
         footnote="出典：井之上喬（2015）『パブリック・リレーションズ（第2版）』日本評論社 P17〜18 を参考に尾上作成"
       />
     </>
-  );
-};
+  )
+}

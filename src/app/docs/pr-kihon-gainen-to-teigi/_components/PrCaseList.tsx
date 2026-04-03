@@ -1,17 +1,17 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
 interface PrCaseListProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const PrCaseList = ({ children }: PrCaseListProps) => {
-  return <div className="case-list">{children}</div>;
-};
+  return <div className="case-list">{children}</div>
+}
 
 interface PrCaseItemProps {
-  icon: ReactNode;
-  title: ReactNode;
-  children: ReactNode;
+  icon: ReactNode
+  title: ReactNode
+  children: ReactNode
 }
 
 export const PrCaseItem = ({ icon, title, children }: PrCaseItemProps) => {
@@ -23,5 +23,5 @@ export const PrCaseItem = ({ icon, title, children }: PrCaseItemProps) => {
         <p>{children}</p>
       </div>
     </div>
-  );
-};
+  )
+}

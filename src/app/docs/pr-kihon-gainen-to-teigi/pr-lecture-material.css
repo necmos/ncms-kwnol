@@ -12,7 +12,8 @@
   --pr-light-green: #e8f5e9;
   --pr-orange: #e65100;
   --pr-light-orange: #fff3e0;
-  font-family: var(--font-noto-sans-jp), "Hiragino Kaku Gothic ProN", "Yu Gothic",
+  font-family:
+    var(--font-noto-sans-jp), 'Hiragino Kaku Gothic ProN', 'Yu Gothic',
     sans-serif;
   background: var(--pr-gray-bg);
   color: #2c3e50;
@@ -35,7 +36,7 @@
 }
 
 .pr-lecture-material header::before {
-  content: "PR";
+  content: 'PR';
   position: absolute;
   right: -20px;
   top: -30px;
@@ -125,7 +126,7 @@
 }
 
 .pr-lecture-material nav a.new-badge::after {
-  content: "NEW";
+  content: 'NEW';
   background: #e53935;
   color: white;
   font-size: 0.6rem;
@@ -234,7 +235,7 @@
 }
 
 .pr-lecture-material .card h3::before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 8px;
   height: 8px;
@@ -633,7 +634,7 @@
 }
 
 .pr-lecture-material .timeline::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 10px;
   top: 0;
@@ -649,7 +650,7 @@
 }
 
 .pr-lecture-material .tl-item::before {
-  content: "";
+  content: '';
   position: absolute;
   left: -22px;
   top: 6px;
@@ -772,7 +773,7 @@
 }
 
 .pr-lecture-material .corona-card ul li::before {
-  content: "▸";
+  content: '▸';
   position: absolute;
   left: 0;
   color: var(--pr-blue);

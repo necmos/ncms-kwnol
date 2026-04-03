@@ -1,4 +1,4 @@
-import { PrCommCard, PrCommCompareGrid, PrCommEquals } from "../PrCommCompare";
+import { PrCommCard, PrCommCompareGrid, PrCommEquals } from '../PrCommCompare'
 
 export const SectionS11CommCompare = () => {
   return (
@@ -27,9 +27,9 @@ export const SectionS11CommCompare = () => {
       </PrCommCompareGrid>
 
       <PrCommEquals>
-        コーポレート・コミュニケーション ＋ マーケティング・コミュニケーション ＝
-        パブリック・リレーションズ
+        コーポレート・コミュニケーション ＋ マーケティング・コミュニケーション
+        ＝ パブリック・リレーションズ
       </PrCommEquals>
     </>
-  );
-};
+  )
+}

@@ -1,7 +1,7 @@
-import { PrCard } from "../PrCard";
-import { PrCoronaCard, PrCoronaGrid } from "../PrCoronaGrid";
-import { PrDataTable } from "../PrDataTable";
-import { PrSectionLabel } from "../PrSectionLabel";
+import { PrCard } from '../PrCard'
+import { PrCoronaCard, PrCoronaGrid } from '../PrCoronaGrid'
+import { PrDataTable } from '../PrDataTable'
+import { PrSectionLabel } from '../PrSectionLabel'
 
 export const SectionS7Corona = () => {
   return (
@@ -13,7 +13,10 @@ export const SectionS7Corona = () => {
         badge={<span className="lecture-badge l3">第3回 NEW</span>}
       />
 
-      <PrCard variant="green" title="2020年：パンデミックがもたらした世界規模の変化">
+      <PrCard
+        variant="green"
+        title="2020年：パンデミックがもたらした世界規模の変化"
+      >
         <p>
           2020年の新型コロナウイルス感染症（COVID-19）のパンデミックは、政治・経済・社会のあらゆる側面に影響を与えた。PRの視点から見ると、政府・企業・国際機関それぞれのコミュニケーション戦略の巧拙が如実に現れた事例である。
         </p>
@@ -85,7 +88,10 @@ export const SectionS7Corona = () => {
         </PrCoronaCard>
       </PrCoronaGrid>
 
-      <PrCard variant="green" title="国内外識者（120名）による社会変化予測（抜粋）">
+      <PrCard
+        variant="green"
+        title="国内外識者（120名）による社会変化予測（抜粋）"
+      >
         <PrDataTable style={{ marginTop: 8 }}>
           <thead>
             <tr>
@@ -158,8 +164,7 @@ export const SectionS7Corona = () => {
               </td>
               <td>
                 AI活用加速により余剰労働力が増加。逆に言えば、
-                <strong>労働から解放された社会</strong>
-                へ
+                <strong>労働から解放された社会</strong>へ
               </td>
             </tr>
           </tbody>
@@ -169,5 +174,5 @@ export const SectionS7Corona = () => {
         </p>
       </PrCard>
     </section>
-  );
-};
+  )
+}

@@ -1,7 +1,8 @@
-import { PrSectionLabel } from "../PrSectionLabel";
-import { SectionS11CommCompare } from "./SectionS11CommCompare";
-import { SectionS11CommRelationsTable } from "./SectionS11CommRelationsTable";
-import { SectionS11CommReputationTable } from "./SectionS11CommReputationTable";
+import { PrSectionLabel } from '../PrSectionLabel'
+
+import { SectionS11CommCompare } from './SectionS11CommCompare'
+import { SectionS11CommRelationsTable } from './SectionS11CommRelationsTable'
+import { SectionS11CommReputationTable } from './SectionS11CommReputationTable'
 
 export const SectionS11Comm = () => {
   return (
@@ -17,5 +18,5 @@ export const SectionS11Comm = () => {
       <SectionS11CommReputationTable />
       <SectionS11CommRelationsTable />
     </section>
-  );
-};
+  )
+}

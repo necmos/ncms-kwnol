@@ -1,9 +1,9 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
 interface PrDefBoxProps {
-  yearTag: ReactNode;
-  quote: ReactNode;
-  source: ReactNode;
+  yearTag: ReactNode
+  quote: ReactNode
+  source: ReactNode
 }
 
 export const PrDefBox = ({ yearTag, quote, source }: PrDefBoxProps) => {
@@ -13,5 +13,5 @@ export const PrDefBox = ({ yearTag, quote, source }: PrDefBoxProps) => {
       <blockquote>{quote}</blockquote>
       <div className="source">{source}</div>
     </div>
-  );
-};
+  )
+}

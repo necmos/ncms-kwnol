@@ -1,6 +1,6 @@
-import Link from "next/link";
+import Link from 'next/link'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Home = () => {
   return (
@@ -8,7 +8,7 @@ const Home = () => {
       <h1 className="text-center text-2xl font-semibold tracking-tight">
         ncms-knowl
       </h1>
-      <p className="max-w-md text-center text-muted-foreground">
+      <p className="text-muted-foreground max-w-md text-center">
         学習資料は Next.js ページとして公開しています。
       </p>
       <Button asChild size="lg">
@@ -17,7 +17,7 @@ const Home = () => {
         </Link>
       </Button>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

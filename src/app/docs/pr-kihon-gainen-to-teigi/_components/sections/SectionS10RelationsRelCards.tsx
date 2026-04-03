@@ -1,4 +1,4 @@
-import { PrRelCard, PrRelationsGrid } from "../PrRelationsGrid";
+import { PrRelCard, PrRelationsGrid } from '../PrRelationsGrid'
 
 export const SectionS10RelationsRelCards = () => {
   return (
@@ -64,5 +64,5 @@ export const SectionS10RelationsRelCards = () => {
         </p>
       </PrRelCard>
     </PrRelationsGrid>
-  );
-};
+  )
+}

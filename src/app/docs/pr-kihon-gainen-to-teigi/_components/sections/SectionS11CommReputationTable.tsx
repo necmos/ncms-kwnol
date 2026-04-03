@@ -1,9 +1,12 @@
-import { PrCard } from "../PrCard";
-import { PrDataTable } from "../PrDataTable";
+import { PrCard } from '../PrCard'
+import { PrDataTable } from '../PrDataTable'
 
 export const SectionS11CommReputationTable = () => {
   return (
-    <PrCard variant="orange" title="レピュテーション・マネジメント vs ブランド・マネジメント">
+    <PrCard
+      variant="orange"
+      title="レピュテーション・マネジメント vs ブランド・マネジメント"
+    >
       <PrDataTable style={{ marginTop: 8 }}>
         <thead>
           <tr>
@@ -18,7 +21,10 @@ export const SectionS11CommReputationTable = () => {
               <strong>レピュテーション</strong>
             </td>
             <td>評判・評価・世間が抱く印象の総体</td>
-            <td rowSpan={2} style={{ verticalAlign: "middle", textAlign: "center" }}>
+            <td
+              rowSpan={2}
+              style={{ verticalAlign: 'middle', textAlign: 'center' }}
+            >
               ↑
             </td>
           </tr>
@@ -34,15 +40,15 @@ export const SectionS11CommReputationTable = () => {
             <td
               colSpan={2}
               style={{
-                background: "var(--pr-light-blue)",
-                textAlign: "center",
+                background: 'var(--pr-light-blue)',
+                textAlign: 'center',
                 fontWeight: 700,
-                color: "var(--pr-navy)",
+                color: 'var(--pr-navy)',
               }}
             >
               →「コーポレート・コミュニケーション」を駆使
             </td>
-            <td style={{ background: "var(--pr-light-blue)" }} />
+            <td style={{ background: 'var(--pr-light-blue)' }} />
           </tr>
           <tr>
             <td>
@@ -51,7 +57,10 @@ export const SectionS11CommReputationTable = () => {
             <td>
               有形・無形にさまざまなステーク・ホルダーを満足させる、包括的な価値（様々な定義が存在）
             </td>
-            <td rowSpan={2} style={{ verticalAlign: "middle", textAlign: "center" }}>
+            <td
+              rowSpan={2}
+              style={{ verticalAlign: 'middle', textAlign: 'center' }}
+            >
               ↑
             </td>
           </tr>
@@ -67,18 +76,18 @@ export const SectionS11CommReputationTable = () => {
             <td
               colSpan={2}
               style={{
-                background: "var(--pr-light-orange)",
-                textAlign: "center",
+                background: 'var(--pr-light-orange)',
+                textAlign: 'center',
                 fontWeight: 700,
-                color: "var(--pr-orange)",
+                color: 'var(--pr-orange)',
               }}
             >
               →「マーケティング・コミュニケーション」を駆使
             </td>
-            <td style={{ background: "var(--pr-light-orange)" }} />
+            <td style={{ background: 'var(--pr-light-orange)' }} />
           </tr>
         </tbody>
       </PrDataTable>
     </PrCard>
-  );
-};
+  )
+}

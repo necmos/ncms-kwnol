@@ -1,5 +1,5 @@
-import { PrCaseItem, PrCaseList } from "../PrCaseList";
-import { PrSectionLabel } from "../PrSectionLabel";
+import { PrCaseItem, PrCaseList } from '../PrCaseList'
+import { PrSectionLabel } from '../PrSectionLabel'
 
 export const SectionS8Cases = () => {
   return (
@@ -10,7 +10,7 @@ export const SectionS8Cases = () => {
         badge={<span className="lecture-badge">第2回</span>}
       />
 
-      <p style={{ marginBottom: 18, color: "var(--pr-gray-text)" }}>
+      <p style={{ marginBottom: 18, color: 'var(--pr-gray-text)' }}>
         PRは日常のニュースに深く関わっている。以下の事例はいずれもPRの観点から分析できる。
       </p>
 
@@ -32,5 +32,5 @@ export const SectionS8Cases = () => {
         </PrCaseItem>
       </PrCaseList>
     </section>
-  );
-};
+  )
+}

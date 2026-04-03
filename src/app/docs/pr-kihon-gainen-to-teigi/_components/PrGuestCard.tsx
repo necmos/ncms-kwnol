@@ -1,11 +1,11 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
 interface PrGuestCardProps {
-  name: ReactNode;
-  title: ReactNode;
-  introParagraphs: ReadonlyArray<ReactNode>;
-  booksTitle: ReactNode;
-  books: ReadonlyArray<ReactNode>;
+  name: ReactNode
+  title: ReactNode
+  introParagraphs: ReadonlyArray<ReactNode>
+  booksTitle: ReactNode
+  books: ReadonlyArray<ReactNode>
 }
 
 export const PrGuestCard = ({
@@ -31,5 +31,5 @@ export const PrGuestCard = ({
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}

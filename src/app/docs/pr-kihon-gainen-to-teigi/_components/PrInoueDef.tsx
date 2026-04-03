@@ -1,10 +1,10 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
 interface PrInoueDefProps {
-  title: ReactNode;
-  core: ReactNode;
-  keywordsBlock: ReactNode;
-  source: ReactNode;
+  title: ReactNode
+  core: ReactNode
+  keywordsBlock: ReactNode
+  source: ReactNode
 }
 
 export const PrInoueDef = ({
@@ -20,5 +20,5 @@ export const PrInoueDef = ({
       {keywordsBlock}
       <div className="source">{source}</div>
     </div>
-  );
-};
+  )
+}

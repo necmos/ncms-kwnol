@@ -1,17 +1,17 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
 interface PrThreeForcesProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const PrThreeForces = ({ children }: PrThreeForcesProps) => {
-  return <div className="three-forces">{children}</div>;
-};
+  return <div className="three-forces">{children}</div>
+}
 
 interface PrForceCardProps {
-  num: string;
-  title: ReactNode;
-  children: ReactNode;
+  num: string
+  title: ReactNode
+  children: ReactNode
 }
 
 export const PrForceCard = ({ num, title, children }: PrForceCardProps) => {
@@ -21,5 +21,5 @@ export const PrForceCard = ({ num, title, children }: PrForceCardProps) => {
       <h4>{title}</h4>
       <p>{children}</p>
     </div>
-  );
-};
+  )
+}

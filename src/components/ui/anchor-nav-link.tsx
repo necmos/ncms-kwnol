@@ -1,9 +1,9 @@
-import type { ComponentProps } from "react";
+import type { ComponentProps } from 'react'
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
-interface AnchorNavLinkProps extends ComponentProps<"a"> {
-  newBadge?: boolean;
+interface AnchorNavLinkProps extends ComponentProps<'a'> {
+  newBadge?: boolean
 }
 
 export const AnchorNavLink = ({
@@ -13,11 +13,8 @@ export const AnchorNavLink = ({
   ...props
 }: AnchorNavLinkProps) => {
   return (
-    <a
-      className={cn(newBadge ? "new-badge" : undefined, className)}
-      {...props}
-    >
+    <a className={cn(newBadge ? 'new-badge' : undefined, className)} {...props}>
       {children}
     </a>
-  );
-};
+  )
+}
