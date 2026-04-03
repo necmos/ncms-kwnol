@@ -2,7 +2,11 @@ import type { ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
 
-export type SectionNumVariant = 'default' | 'lecture3' | 'lecture4'
+export type SectionNumVariant =
+  | 'default'
+  | 'lecture3'
+  | 'lecture4'
+  | 'lecture5'
 
 interface PrSectionLabelProps {
   num: string
@@ -23,7 +27,8 @@ export const PrSectionLabel = ({
         className={cn(
           'section-num',
           sectionNumVariant === 'lecture3' && 'lecture3',
-          sectionNumVariant === 'lecture4' && 'lecture4'
+          sectionNumVariant === 'lecture4' && 'lecture4',
+          sectionNumVariant === 'lecture5' && 'lecture5'
         )}
       >
         {num}

@@ -5,13 +5,16 @@ export const PrHeader = () => {
         <span className="header-tag">第2回 10/8 — 基本概念と定義</span>
         <span className="header-tag new">第3回 10/15 — 歴史的背景</span>
         <span className="header-tag new">
-          第4回 10/22 — 様々なリレーションズ NEW
+          第4回 10/22 — 様々なリレーションズ
+        </span>
+        <span className="header-tag new">
+          第5回 10/29 — メディア・リレーションズ NEW
         </span>
       </div>
       <h1>
         パブリック・リレーションズ概論
         <br />
-        総合学習資料（第2・3・4回）
+        総合学習資料（第2・3・4・5回）
       </h1>
       <p className="sub">
         次世代のリーダーのためのPR理論 ／ 早稲田大学 2020年度

@@ -17,6 +17,11 @@ const navItems: ReadonlyArray<{
   { href: '#s10', label: '様々なリレーションズ', newBadge: true },
   { href: '#s11', label: 'コーポレート/マーケティング', newBadge: true },
   { href: '#s12', label: 'リレーションシップ管理', newBadge: true },
+  {
+    href: '#s13',
+    label: 'メディア・リレーションズ',
+    newBadge: true,
+  },
 ]
 
 export const PrStickyNav = () => {

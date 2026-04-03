@@ -4,6 +4,7 @@ import { PrStickyNav } from './_components/PrStickyNav'
 import { SectionS10Relations } from './_components/sections/SectionS10Relations'
 import { SectionS11Comm } from './_components/sections/SectionS11Comm'
 import { SectionS12Rm } from './_components/sections/SectionS12Rm'
+import { SectionS13MediaRelations } from './_components/sections/SectionS13MediaRelations'
 import { SectionS1Intro } from './_components/sections/SectionS1Intro'
 import { SectionS2Definitions } from './_components/sections/SectionS2Definitions'
 import { SectionS3WhatIsPr } from './_components/sections/SectionS3WhatIsPr'
@@ -32,6 +33,7 @@ const PrKihonGainenToTeigiPage = () => {
         <SectionS10Relations />
         <SectionS11Comm />
         <SectionS12Rm />
+        <SectionS13MediaRelations />
       </main>
       <PrFooter />
     </div>

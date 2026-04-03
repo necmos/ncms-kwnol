@@ -8,7 +8,9 @@ export const SectionS1Intro = () => {
       <PrSectionLabel
         num="1"
         title="はじめに"
-        badge={<span className="lecture-badge">第2回 + 第3回 + 第4回</span>}
+        badge={
+          <span className="lecture-badge">第2回 + 第3回 + 第4回 + 第5回</span>
+        }
       />
 
       <PrCard title="第2回授業（10/8）の目的">
@@ -49,6 +51,54 @@ export const SectionS1Intro = () => {
           <strong>リレーションシップ・マネジメント</strong>
           と、プロフェッショナルが関わった場合のリレーションシップ・マネジメントのあり方との相違点についても理解を深める。
         </p>
+      </PrCard>
+
+      <PrCard
+        variant="purple"
+        title={
+          <>
+            第5回授業（10/29）の目的{' '}
+            <span className="lecture-badge l5">第5回</span>
+          </>
+        }
+      >
+        <p>
+          パブリック・リレーションズの<strong>コア・コンピタンス</strong>
+          となる
+          <strong>メディア・リレーションズ</strong>
+          について集中的に学ぶ。マスメディアの本質を理解し、各種マスメディアの特性を押さえると共に、各メディアの特色を知る。また、メディア・リレーションズの特徴を理解するとともに、
+          <strong>メディアと良好な関係を構築する手法</strong>
+          を確認する。
+        </p>
+      </PrCard>
+
+      <PrCard
+        variant="purple"
+        title={
+          <>
+            前回（第4回）授業の質問 Q&A{' '}
+            <span className="lecture-badge l5">第5回冒頭</span>
+          </>
+        }
+      >
+        <PrDataTable style={{ marginTop: 8 }}>
+          <thead>
+            <tr>
+              <th className="purple-head">質問（学生）</th>
+              <th className="purple-head">回答（井之上先生より）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong>Q1（高等学院2年 戸嶋丈）</strong>
+                <br />
+                エンプロイー・リレーションズに関しての質問です。昨今、日本では外国人労働者の増加が著しいですが、いくつかの企業では低賃金労働や労働環境の劣悪さ、コミュニケーション不足など多くの問題が指摘されています。そこで反対に、外国人労働者に対するエンプロイーリレーションズを重視し、上手く対処できている企業の例をお教えいただけたらと思います。
+              </td>
+              <td>（当日の講義・口頭補足）</td>
+            </tr>
+          </tbody>
+        </PrDataTable>
       </PrCard>
 
       <PrCard

@@ -12,6 +12,8 @@
   --pr-light-green: #e8f5e9;
   --pr-orange: #e65100;
   --pr-light-orange: #fff3e0;
+  --pr-purple: #6a1b9a;
+  --pr-light-purple: #f3e5f5;
   font-family:
     var(--font-noto-sans-jp), 'Hiragino Kaku Gothic ProN', 'Yu Gothic',
     sans-serif;
@@ -176,6 +178,10 @@
   background: var(--pr-orange);
 }
 
+.pr-lecture-material .section-num.lecture5 {
+  background: var(--pr-purple);
+}
+
 .pr-lecture-material .section-label h2 {
   font-size: 1.4rem;
   font-weight: 900;
@@ -207,6 +213,12 @@
   border-color: #ffcc80;
 }
 
+.pr-lecture-material .lecture-badge.l5 {
+  background: var(--pr-light-purple);
+  color: var(--pr-purple);
+  border-color: #ce93d8;
+}
+
 .pr-lecture-material .card {
   background: var(--pr-white);
   border-radius: 14px;
@@ -222,6 +234,10 @@
 
 .pr-lecture-material .card.orange {
   border-left-color: var(--pr-orange);
+}
+
+.pr-lecture-material .card.purple {
+  border-left-color: var(--pr-purple);
 }
 
 .pr-lecture-material .card h3 {
@@ -249,6 +265,10 @@
 
 .pr-lecture-material .card.orange h3::before {
   background: var(--pr-orange);
+}
+
+.pr-lecture-material .card.purple h3::before {
+  background: var(--pr-purple);
 }
 
 .pr-lecture-material .def-box {
@@ -390,6 +410,10 @@
 
 .pr-lecture-material thead th.orange-head {
   background: var(--pr-orange);
+}
+
+.pr-lecture-material thead th.purple-head {
+  background: var(--pr-purple);
 }
 
 .pr-lecture-material tbody td {

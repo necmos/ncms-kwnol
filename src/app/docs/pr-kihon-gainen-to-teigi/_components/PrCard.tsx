@@ -2,7 +2,7 @@ import type { ComponentProps, ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
 
-export type PrCardVariant = 'default' | 'green' | 'orange'
+export type PrCardVariant = 'default' | 'green' | 'orange' | 'purple'
 
 interface PrCardProps {
   title?: ReactNode
@@ -27,6 +27,7 @@ export const PrCard = ({
         'card',
         variant === 'green' && 'green',
         variant === 'orange' && 'orange',
+        variant === 'purple' && 'purple',
         className
       )}
       style={style}
