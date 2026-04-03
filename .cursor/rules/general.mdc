@@ -1,6 +1,9 @@
-@AGENTS.md
+---
+description: プロジェクト全体の共通ルール。すべてのファイル編集時に適用。
+alwaysApply: true
+---
 
-# CLAUDE.md
+# ncms-knowl
 
 ## コーディングガイドライン
 
